@@ -5,7 +5,8 @@ This share package provides a {\GAP} interface to Carat,
 a package of programs for the computation with crystallographic 
 groups. Carat itself is implemented in C, and has been developed at 
 Lehrstuhl B f{\accent127 u}r Mathematik, RWTH Aachen. It runs on many 
-Unix systems.
+Unix systems. The algorithms used by Carat have been described in
+\cite{OPS}.
 
 The {GAP} interface consists of two parts, low level interface 
 routines to Carat functions on the one hand, and comfortable high 
@@ -13,6 +14,12 @@ level {\GAP} functions on the other hand. The high level functions,
 implemented in terms of the low level functions, provide actually
 methods for functions and operations declared in the {GAP} library.
 
+Note that while (almost) all Carat functions should be accessible
+from within {\GAP} by the low level interface routines, high level
+interface routines are provided only for a small subset of the
+Carat functions. Priority has been given to routines providing
+functionality that has previously not been available in {\GAP}.
+Further high level interface routines may be added in the future.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Action from the left and from the right}
@@ -26,10 +33,12 @@ expected format.
 On the other hand, in {\GAP} the convention is that all groups 
 act from the right, in the case of matrix groups on row vectors. 
 However, in order to make {\GAP} accessible to crystallographers,
-many functions important in crystallography are provided in two
-variants, one for each convention. This is the case for all high
-level routines provided by this package. Where necessary, these high
-level routines translate to and from the convention used by Carat.
+functions that are important in crystallography and for which it
+matters which action is assumed, are provided in two variants, 
+one for each convention. The high level routines currently provided
+by this package do not depend on which convention is assumed.
+This may change, however, when further high level routines are 
+added in the future.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Carat input and output files}
@@ -99,21 +108,15 @@ Bravais record to the file.
 
 reads a Bravais File, and returns the resulting Bravais record.
 
-Certain Carat programs produce output files in a special format.
-These files usually consist of a varying number of header lines, 
-followed by the data of several Bravais records. The header lines 
-are currently just discarded.
+Certain Carat programs produce output files containing several Bravais 
+records, possibly preceeded by a varying number of header lines.
 
-\>CaratReadQtoZFile( <filename> ) F
+\>CaratReadMultiBravaisFile( <filename> ) F
 
-reads the output file of Carat program QtoZ, and returns the
-resulting list of Bravais records. 
-
-\>CaratReadBravaisInclusionsFile( <filename> ) F
-
-reads the output file of Carat program Bravais\_inclusions, 
-and returns the resulting list of Bravais records. 
-
+reads such a multi-Bravais file, and returns a record with the components
+`info' and `groups'. `info' is the list of header lines before the first
+Bravais record starts, and `groups' is the list of Bravais records read from
+the file.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Section{Executing Carat commands}
@@ -156,64 +159,42 @@ terminal. Example:
 
 Carat implements methods for the following functions and operations
 declared in the {\GAP} library. For a detailed description of these
-functions, please consult the {\GAP} manual (section "Matrix Groups
+functions, please consult the {\GAP} manual (section "ref:Matrix Groups
 in Characteristic 0").
 
-\index{IsBravaisGroup}
-\index{IsBravaisGroupOnRight}
-\index{IsBravaisGroupOnLeft}
+\>BravaisGroup( <G> ) A
 
-\index{BravaisGroup}
-\index{BravaisGroupOnRight}
-\index{BravaisGroupOnLeft}
+\>IsBravaisGroup( <G> ) P
 
-\index{BravaisSubgroups}
-\index{BravaisSubgroupsOnRight}
-\index{BravaisSubgroupsOnLeft}
+\>BravaisSubgroups( <G> ) A
 
-\index{BravaisSupergroups}
-\index{BravaisSupergroupsOnRight}
-\index{BravaisSupergroupsOnLeft}
+\>BravaisSupergroups( <G> ) A
 
-\index{NormalizerInGlnZBravaisGroup}
-\index{NormalizerInGlnZBravaisGroupOnRight}
-\index{NormalizerInGlnZBravaisGroupOnLeft}
+\>NormalizerInGLnZBravaisGroup( <G> ) A
 
-\index{Normalizer!in GLnZ}
-\index{Centralizer!in GLnZ}
-\index{ZClassRepsQClass}
-\index{RepresentativeOperation!in GLnZ}
+\>`Normalizer( GL(<n>, Integers), <G> )'{Normalizer!in GLnZ}@{in GLnZ} O
 
-\begintt
-IsBravaisGroup
-IsBravaisGroupOnRight
-IsBravaisGroupOnLeft
+\>`Centralizer( GL(<n>, Integers), <G> )'{Centralizer!in GLnZ}@{in GLnZ} O
 
-BravaisGroup
-BravaisGroupOnRight
-BravaisGroupOnLeft
+\>ZClassRepsQClass( <G> ) A
 
-BravaisSubgroups
-BravaisSubgroupsOnRight
-BravaisSubgroupsOnLeft
-
-BravaisSupergroups
-BravaisSupergroupsOnRight
-BravaisSupergroupsOnLeft
-
-NormalizerInGLnZBravaisGroup
-NormalizerInGLnZBravaisGroupOnRight 
-NormalizerInGLnZBravaisGroupOnLeft 
-
-Normalizer(  GL(<n>, Integers), <G> ) 
-Centralizer( GL(<n>, Integers), <G> )
-
-ZClassRepsQClass
-
-RepresentativeOperation( GL(<n>,Integers), <G1>, <G2> )
-\endtt
+\>`RepresentativeAction( GL(<n>,Integers), <G1>, <G2> )'{RepresentativeAction!in GLnZ}@{in GLnZ} O
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Section{Carat Bravais Catalog}
 
+Carat contains a catalog with $\Z$-class representatives of all
+Bravais groups of dimension up to 6. These Bravais groups are
+accessed via a crystal family symbol.
+
+\>`CaratCrystalFamilies[d]'{CaratCrystalFamilies}@{`CaratCrystalFamilies'} V
+
+returns a list of admissible crystal family symbols in dimension <d>.
+
+\>BravaisGroupsCrystalFamily( <symb> ) F
+
+returns a list of $\Z$-class representatives of the Bravais groups
+in the crystal family with symbol <symb>.
 
 

@@ -2,8 +2,11 @@
 This share package contains GAP 4 interface routines to Carat, 
 a package of programs for the computation with crystallographic
 groups. Carat is implemented in C, and has been developed at Lehrstuhl
-B f"ur Mathematik, RWTH Aachen. Carat itself is NOT part of this share
-package. Carat can be obtained at
+B f"ur Mathematik, RWTH Aachen. Carat itself is NOT part of this 
+share package. However, for your convenience, and with the permission
+of the Carat authors, a copy of Carat is included in this package. 
+It is this version with which the interface routines have been
+tested. The most recent version of Carat can be obtained at
 
     http://samuel.math.rwth-aachen.de/~LBFM/carat/
  
@@ -21,36 +24,33 @@ addressed. Bug reports regarding Carat itself should be sent to
 
     carat@momo.math.rwth-aachen.de.
 
-The interface routines in this package fall into two parts: low level
-interface routines which deal with the data files of Carat programs,
-and implementations (using Carat) of methods for higher level
-functions declared in the GAP library. 
-
 This package must be installed in one of the GAP 4 root directories.
 It is loaded with
 
     RequirePackage( "carat" );
 
-For each type of hardware (see the GAP 4 bin directory), the 
-pkg/carat/bin directory must contain a link to the corresponding 
-directory with the Carat binaries, or a directory containing the
-Carat binaries.
+For each type of hardware architecture you want to use, the pkg/carat/bin 
+directory must contain a link to the corresponding directory with the 
+Carat binaries, or a subdirectory containing the Carat binaries. With 
+the GAP command DirectoriesPackagePrograms you can find out in which
+directory GAP expects the Carat binaries:
 
-Files:
+gap> DirectoriesPackagePrograms( "carat" );
+[ dir("/gap4/pkg/carat/bin/i686-pc-linux-gnu-gcc/") ]
 
-    gap/carat.gd:     declarations of low level Carat interface routines
-    gap/carat.gi:     implementations of low level Carat interface routines
-    gap/methods.gi:   methods (using Carat) for higher level
-                      functions declared in the GAP library 
+Carat itself can be installed anywhere on your system. You only have
+to make sure GAP finds the Carat binaries. In our example, we install 
+Carat in /gap4/pkg/carat:
 
-    The contents of the following file might eventually be moved to the 
-    GAP library:
+    cd /gap4/pkg/carat
+    zcat carat.1.0c.tar.gz | tar xf -
 
-    gap/util.gi:      Stabilizer for groups without membership test
+This creates a subdirectory /gap4/pkg/carat/carat, the Carat top level
+directory. You have to edit the Makefile in that directory. In particular,
+you have to set the variables TOPDIR (to /gap4/pkg/carat/carat), CC, and
+CFLAGS (to your favourite set of compiler options). If you build for
+more than one architecture, make sure to do a 'make clean' in between.
 
-Documentation:
-
-    doc/manual.dvi:   documentation
 
 
 

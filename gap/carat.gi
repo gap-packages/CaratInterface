@@ -33,6 +33,9 @@ end;
 CaratReadLine := function( input )
     local str, pos;
     str := ReadLine( input );
+    if str = fail then
+        return fail;
+    fi;
     pos := Position( str, '%' );
     if pos <> fail then
         return str{[1..pos-1]};
@@ -336,33 +339,45 @@ end;
 
 #############################################################################
 ##
-#F  CaratReadBravaisRecords( input, n )  . . . . read n Carat Bravais records
-##
-CaratReadBravaisRecords := function( input, n )
-
-    local res, i, str;
-
-    res := [];
-    for i in [1..n] do
-        str := CaratReadLine( input );
-        Add( res, CaratReadBravaisRecord( input, str ) );
-    od;
-    return res;
-
-end;
-
-
-#############################################################################
-##
 #F  CaratReadBravaisFile( filename )  . . . . . . . . read Carat Bravais file
 ##
 InstallGlobalFunction( CaratReadBravaisFile, function( filename )
 
-    local input, str, res, pos, n;
+    local input, str, res;
 
     input := InputTextFile( filename );
     str   := CaratReadLine( input );
     res   := CaratReadBravaisRecord( input, str );
+
+    CloseStream( input );
+    return res;
+
+end ); 
+
+
+#############################################################################
+##
+#F  CaratReadMultiBravaisFile( filename ) . . . read Carat Multi-Bravais file
+##
+InstallGlobalFunction( CaratReadMultiBravaisFile, function( filename )
+
+    local input, str, res;
+
+    input := InputTextFile( filename );
+    str   := CaratReadLine( input );
+    res   := rec( info := [], groups := [] );
+
+    # read comments until first Bravais record starts
+    while Length( str ) < 2 or str{[1..2]} <> "#g" do
+        Add( res.info, str );
+        str := CaratReadLine( input );
+    od;
+
+    # read the Bravais records
+    while str <> fail and Length( str ) >= 2 and str{[1..2]} = "#g" do
+        Add( res.groups, CaratReadBravaisRecord( input, str ) );
+        str := CaratReadLine( input );
+    od;
 
     CloseStream( input );
     return res;
@@ -535,59 +550,6 @@ InstallGlobalFunction( CaratWriteBravaisFile, function( filename, data )
     CloseStream( output );
 
 end );
-
-
-#############################################################################
-##
-##  Some routines to read output of special Carat commands
-##
-
-
-#############################################################################
-##
-#F  CaratReadQtoZFile( filename ) . . . . . . . . read Carat QtoZ output file
-##
-InstallGlobalFunction( CaratReadQtoZFile, function( filename )
-
-    local input, str, n, res;
-
-    input := InputTextFile( filename );
-
-    # shall we do something with the stuff discarded here?
-    str   := CaratReadLine( input );
-    while str[1] <> '#' do
-        str   := CaratReadLine( input );
-    od;
-    n     := CaratNextNumber( str, 1 );
-    res   := CaratReadBravaisRecords( input, n );
-
-    CloseStream( input );
-    return res;
-
-end ); 
-
-
-#############################################################################
-##
-#F  CaratReadBravaisInclusionsFile( filename ) . read Carat Bravais_incl file
-##
-InstallGlobalFunction( CaratReadBravaisInclusionsFile, function( filename )
-
-    local input, str, n, res;
-
-    input := InputTextFile( filename );
-
-    # shall we do something with the stuff discarded here?
-    str   := CaratReadLine( input );
-    str   := CaratReadLine( input );
-    str   := CaratReadLine( input );
-    n     := CaratNextNumber( str, 1 );
-    res   := CaratReadBravaisRecords( input, n );
-
-    CloseStream( input );
-    return res;
-
-end ); 
 
 
 #############################################################################

@@ -39,6 +39,12 @@ DeclareGlobalFunction( "CaratReadBravaisFile" );
 
 #############################################################################
 ##
+#F  CaratReadMultiBravaisFile( filename ) . . . read Carat Multi-Bravais file
+##
+DeclareGlobalFunction( "CaratReadMultiBravaisFile" );
+
+#############################################################################
+##
 #F  CaratWriteMatrixFile( filename, data )  . write Carat matrix data to file
 ##
 DeclareGlobalFunction( "CaratWriteMatrixFile" );
@@ -51,15 +57,21 @@ DeclareGlobalFunction( "CaratWriteBravaisFile" );
 
 #############################################################################
 ##
-#F  CaratReadQtoZFile( filename ) . . . . . . . . read Carat QtoZ output file
+#V  CaratCrystalFamilies . . . . . . . . . . .crystal family symbols in Carat
 ##
-DeclareGlobalFunction( "CaratReadQtoZFile" );
+DeclareGlobalVariable( "CaratCrystalFamilies" );
 
 #############################################################################
 ##
-#F  CaratReadBravaisInclusionsFile( filename ) . read Carat Bravais_incl file
+#V  CaratCrystalFamiliesFlat . . flat list of crystal family symbols in Carat
 ##
-DeclareGlobalFunction( "CaratReadBravaisInclusionsFile" );
+DeclareGlobalVariable( "CaratCrystalFamiliesFlat" );
+
+#############################################################################
+##
+#F  BravaisGroupsCrystalFamily( symb ) . . . Bravais groups in crystal family
+##
+DeclareGlobalFunction( "BravaisGroupsCrystalFamily" );
 
 #############################################################################
 ##
