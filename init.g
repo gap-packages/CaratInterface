@@ -9,6 +9,7 @@ DeclarePackage( "carat", "1.1", function()
   local path;
   # Carat is available only on UNIX
   if not ARCH_IS_UNIX() then
+     Info( InfoWarning, 1, "Package CARAT is available only on UNIX" );
      return false;
   fi;  
   # test for existence of a compiled binary
