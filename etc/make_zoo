@@ -15,6 +15,7 @@ echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/carat-1.2.tar.gz
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.tex
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.bbl
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.six
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.lab
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.mst
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.ps
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/carat.tex
