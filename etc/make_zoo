@@ -1,4 +1,4 @@
-#!/bin/tcsh
+#!/bin/sh
 
 # remove old archive
 rm carat.zoo
@@ -8,6 +8,7 @@ cd ../..
 
 # first the binary files
 echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.dvi
+echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/carat.1.1.tar.gz
 
 # then the text files
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.tex
@@ -21,15 +22,15 @@ echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/make_doc
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/init.g
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/read.g
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/README
-foreach file (carat/gap/*.g[di])
+for file in carat/gap/*.g[di] ; do
   echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
-end
-foreach file (carat/htm/*.htm)
+done
+for file in carat/htm/*.htm ; do
   echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
-end
+done
 
 # the empty bin directory
-zoo ah carat/etc/carat.zoo carat/bin
+# zoo ah carat/etc/carat.zoo carat/bin
 
 # check result
 cd carat/etc
