@@ -1,29 +1,32 @@
-C carat.tex 1. Interface to Carat
-S 1.1. Action from the left and from the right
-S 1.2. Carat input and output files
-F 1.2. CaratTmpFile
-F 1.2. CaratShowFile
-F 1.2. CaratWriteMatrixFile
-F 1.2. CaratReadMatrixFile
-F 1.2. CaratWriteBravaisFile
-F 1.2. CaratReadBravaisFile
-F 1.2. CaratReadMultiBravaisFile
-S 1.3. Executing Carat commands
-F 1.3. CaratCommand
-F 1.3. CaratHelp
-S 1.4. Methods provided by Carat
-F 1.4. BravaisGroup
-F 1.4. IsBravaisGroup
-F 1.4. BravaisSubgroups
-F 1.4. BravaisSupergroups
-F 1.4. NormalizerInGLnZBravaisGroup
-F 1.4. Normalizer!in GLnZ
-F 1.4. Centralizer!in GLnZ
-F 1.4. ZClassRepsQClass
-F 1.4. RepresentativeAction!in GLnZ
-S 1.5. Carat Bravais Catalog
-F 1.5. CaratCrystalFamilies
-F 1.5. BravaisGroupsCrystalFamily
-S 1.6. Carat Q-Class Catalog
-F 1.6. CaratQClassCatalog
-F 1.6. ConjugatorQClass
+C introduction.tex 1. Introduction
+I 1.0. carat
+C installation.tex 2. Installation
+C carat.tex 3. Interface to CARAT
+S 3.1. Action from the left and from the right
+S 3.2. CARAT input and output files
+F 3.2. CaratTmpFile
+F 3.2. CaratShowFile
+F 3.2. CaratWriteMatrixFile
+F 3.2. CaratReadMatrixFile
+F 3.2. CaratWriteBravaisFile
+F 3.2. CaratReadBravaisFile
+F 3.2. CaratReadMultiBravaisFile
+S 3.3. Executing CARAT commands
+F 3.3. CaratCommand
+F 3.3. CaratHelp
+S 3.4. Methods provided by CARAT
+F 3.4. BravaisGroup
+F 3.4. IsBravaisGroup
+F 3.4. BravaisSubgroups
+F 3.4. BravaisSupergroups
+F 3.4. NormalizerInGLnZBravaisGroup
+F 3.4. Normalizer!in GLnZ
+F 3.4. Centralizer!in GLnZ
+F 3.4. ZClassRepsQClass
+F 3.4. RepresentativeAction!in GLnZ
+S 3.5. CARAT Bravais Catalog
+F 3.5. CaratCrystalFamilies
+F 3.5. BravaisGroupsCrystalFamily
+S 3.6. CARAT Q-Class Catalog
+F 3.6. CaratQClassCatalog
+F 3.6. ConjugatorQClass

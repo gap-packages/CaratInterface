@@ -1,28 +1,53 @@
 \input ../../../doc/gapmacro.tex
+\Package{CARAT}
+\Package{Cryst}
 
 \BeginningOfBook{carat}
 
-  \UseReferences{../../../doc/ref}
+\UseReferences{../../../doc/ref}
 
-  \TitlePage{
-     \centerline{\titlefont Interface to Carat}
-     \bigskip\bigskip
-     \centerline{\secfont written by}
-     \bigskip
-     \centerline{\secfont Franz G{\accent127 a}hler}
-     \bigskip\bigskip\bigskip
-     \input preface.tex
-  }
+\TitlePage{
+  \centerline{\titlefont Interface to CARAT}\medskip
+  \centerline{\titlefont ---}\medskip
+  \centerline{\titlefont A GAP4 Package}\bigskip\bigskip
+  \centerline{\secfont Version 1.1}
+  \vfill
+  \centerline{\secfont Franz G\accent127ahler}\medskip
+  \centerline{Institut f\accent127ur Theoretische und Angewandte Physik}
+  \medskip
+  \centerline{Universit\accent127at Stuttgart, Pfaffenwaldring 57}\medskip
+  \centerline{D-70550 Stuttgart}\medskip
+  \centerline{\secfont Email: gaehler@itap.physik.uni-stuttgart.de}
+  \vfill
+  \centerline{\secfont Based on CARAT Version 1.2}\medskip
+  \centerline{\secfont http://wwwb.math.rwth-aachen.de/carat/}
+  \medskip
+  \centerline{by}
+  \medskip
+  \centerline{\secfont J. Opgenorth, W. Plesken, T. Schulz}\medskip
+  \centerline{Lehrstuhl B f\accent127ur Mathematik, 
+              Templergraben 55, D-52056 Aachen}
+  \vfill
 
-  \TableOfContents
-  \FrontMatter
+  \centerline{\secfont{\Month} \Year}
 
-  \Chapters
-    \Input{carat}
+\vfill
+\centerline{Copyright {\copyright} 1999,2001 by Franz G\accent127ahler}
+\bigskip\smallskip
+\centerline{This software is subject to the {\GAP} copyright regulations}
+\centerline{as detailed in the copyright notice in the {\GAP} manual.}
+}
 
-  \Appendices
+\OneColumnTableOfContents
+\FrontMatter
 
-    \Bibliography
-    \Index
+\Chapters
+  \Input{introduction}
+  \Input{installation}
+  \Input{carat}
+
+\Appendices
+  \Bibliography
+  \Index
 
 \EndOfBook

@@ -8,6 +8,7 @@ cd ../..
 
 # first the binary files
 echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.dvi
+echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.pdf
 echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/carat-1.2.tar.gz
 
 # then the text files
@@ -17,7 +18,8 @@ echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.six
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.mst
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.ps
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/carat.tex
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/preface.tex
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/introduction.tex
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/installation.tex
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/make_doc
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/init.g
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/read.g
@@ -29,9 +31,6 @@ done
 for file in carat/htm/*.htm ; do
   echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
 done
-
-# the empty bin directory
-# zoo ah carat/etc/carat.zoo carat/bin
 
 # check result
 cd carat/etc
