@@ -5,7 +5,7 @@
 #Y  Copyright (C) 1999,      Franz G"ahler,        ITAP, Stuttgart University
 ##
 
-DeclareAutoPackage( "carat", "0.9", function()
+DeclareAutoPackage( "carat", "1.0", function()
   local path;
   # test for existence of a compiled binary
   path := DirectoriesPackagePrograms( "carat" );

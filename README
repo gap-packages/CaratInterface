@@ -1,20 +1,35 @@
 
-This share package contains GAP 4 interface routines to Carat, 
-a package of programs for the computation with crystallographic
-groups. Carat is implemented in C, and has been developed at Lehrstuhl
-B f"ur Mathematik, RWTH Aachen. Carat itself is NOT part of this 
-share package. However, for your convenience, and with the permission
-of the Carat authors, a copy of Carat is included in this package. 
-It is this version with which the interface routines have been
-tested. The most recent version of Carat can be obtained at
+The GAP 4 share package "Interface fo Carat" provides GAP interface 
+routines to some of the stand-alone programs in the package Carat, 
+developed by J. Opgenorth, W. Plesken, and T. Schulz at Lehrstuhl B 
+f\"ur Mathematik, RWTH Aachen. Carat is a package for the computation 
+with crystallographic groups. It is implemented in C, and thus
+needs to be compiled. It runs on Unix systems only.
+
+Carat is to a large extent complementary to the GAP share package
+CrystGap. In particular, it provides routines for the computation 
+of normalizers and conjugators of finite unimodular groups in GL(n,Z),
+and routines for the computation of Bravais groups, which are all 
+missing in CrystGap.  Furthermore, it provides also a catalogue of 
+Bravais groups up to dimension 6. CrystGap automatically loads Carat
+when it is available, and makes use of its functions where necessary. 
+This share package thereby extends the functionality of CrystGap 
+considerably.
+
+Please note that Carat itself is NOT part of the share package.  
+All rights and responsibilities regarding Carat remain with its
+authors. However, for your convenience, and with the permission of the
+Carat authors, a copy of Carat is included in the package. It is this
+version with which the interface routines have been tested. The most
+recent version of Carat can be obtained at
 
     http://samuel.math.rwth-aachen.de/~LBFM/carat/
  
 The GAP interface routines to Carat have been written by
 
-    Franz G"ahler
-    Institut f"ur Theoretische und Angewandte Physik 
-    Universit"at Stuttgart, Pfaffenwaldring 57
+    Franz G\"ahler
+    Institut f\"ur Theoretische und Angewandte Physik 
+    Universit\"at Stuttgart, Pfaffenwaldring 57
     D-70550 Stuttgart
 
     gaehler@itap.physik.uni-stuttgart.de
@@ -43,7 +58,7 @@ file should already be there):
     ln -s carat/bin bin
     cd carat
 
-This creates a subdirectory /gap4/pkg/carat/carat, the Carat top level
+This creates a subdirectory /gap4/pkg/carat/carat, the CARAT top level
 directory. You have to edit the Makefile in that directory. In particular,
 you have to set the variables TOPDIR (to /gap4/pkg/carat/carat), CC, and
 CFLAGS (to your favourite set of compiler options). Then do 
