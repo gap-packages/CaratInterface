@@ -4,3 +4,4 @@ tex manual
 ../../../doc/manualindex manual
 tex manual
 ../../../etc/convert.pl -c -i -n carat . ../htm
+dvips manual
