@@ -1,0 +1,37 @@
+#!/bin/tcsh
+
+# remove old archive
+rm carat.zoo
+
+# goto <gaproot>/pkg
+cd ../..
+
+# first the binary files
+echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.dvi
+
+# then the text files
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.tex
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.bbl
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.six
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.mst
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.ps
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/carat.tex
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/preface.tex
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/make_doc
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/init.g
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/read.g
+echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/README
+foreach file (carat/gap/*.g[di])
+  echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
+end
+foreach file (carat/htm/*.htm)
+  echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
+end
+
+# the empty bin directory
+zoo ah carat/etc/carat.zoo carat/bin
+
+# check result
+cd carat/etc
+zoo -list carat.zoo
+
