@@ -1,7 +1,7 @@
 #!/bin/sh
 
-PKGZOO=carat-1.1.zoo
-DOCZOO=carat-doc-1.1.zoo
+PKGZOO=carat-1.1.1.zoo
+DOCZOO=carat-doc-1.1.1.zoo
 
 # remove old archives
 rm -f $PKGZOO
@@ -28,6 +28,7 @@ echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/doc/carat.tex
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/doc/introduction.tex
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/doc/installation.tex
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/doc/make_doc
+echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/PackageInfo.g
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/init.g
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/read.g
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/README

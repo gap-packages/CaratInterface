@@ -1,17 +1,17 @@
 #############################################################################
 ##
-##  PkgInfo.g for Carat
+##  PackageInfo.g for Carat
 ##
 
 SetPackageInfo( rec(
 
-PkgName := "Carat",
+PackageName := "Carat",
 
-Version := "1.1",
+Version := "1.1.1",
 
-Date := "05/10/2001",
+Date := "18/6/2003",
 
-ArchiveURL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-1.1",
+ArchiveURL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-1.1.1",
 
 ArchiveFormats := ".zoo",
 
@@ -36,7 +36,7 @@ CommunicatedBy := "Herbert Pahlings (Aachen)",
 AcceptDate := "02/2000",
 
 README_URL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/README.carat",
-PkgInfoURL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/PkgInfo.g",
+PackageInfoURL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/PackageInfo.g",
 
 AbstractHTML := 
 "This package provides <span class=\"pkgname\">GAP</span> interface \
@@ -54,7 +54,7 @@ PackageWWWHome := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/packages
 
 PackageDoc  := rec(
   BookName  := "Carat",
-  Archive   := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-doc-1.1.zoo",
+  Archive   := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-doc-1.1.1.zoo",
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
@@ -77,7 +77,7 @@ AvailabilityTest := function()
      return false;
   fi;  
   # test the existence of a compiled binary; since there are
-  # so many, we don't test for all of them, hoping for the best
+  # so many, we do not test for all of them, hoping for the best
   path := DirectoriesPackagePrograms( "carat" );
   if Filename( path, "Z_equiv" ) = fail then
      Info( InfoWarning, 3, "Package Carat: The binaries must be compiled" );

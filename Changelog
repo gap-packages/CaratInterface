@@ -11,4 +11,6 @@ version 1.1.1
 
   - CaratInvariantFormSpace implemented, but not yet documented
 
+  - Support for new package loading mechanism in GAP 4.4
+
 
