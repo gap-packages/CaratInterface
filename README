@@ -1,5 +1,5 @@
 
-The GAP 4 share package "Interface fo Carat" provides GAP interface 
+The GAP 4 share package "Interface to Carat" provides GAP interface 
 routines to some of the stand-alone programs in the package Carat, 
 developed by J. Opgenorth, W. Plesken, and T. Schulz at Lehrstuhl B 
 f\"ur Mathematik, RWTH Aachen. Carat is a package for the computation 
