@@ -3,6 +3,6 @@ Version 1.1:
   - addition of an access function for the Carat Q-class catalog;
     new function ConjugatorQClass
 
-  - switch to Carat 1.1b (slightly patched, so that it compiles with
-    modern compilers)
+  - switch to Carat 1.2
+
 

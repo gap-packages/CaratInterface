@@ -54,7 +54,7 @@ In our example, we install Carat in /gap4/pkg/carat (the Carat tar
 file should already be there):
 
     cd /gap4/pkg/carat
-    zcat carat.1.1b.tar.gz | tar xf -
+    zcat carat.1.2.tar.gz | tar xf -
     ln -s carat/bin bin
     cd carat
 
