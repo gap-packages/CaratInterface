@@ -5,18 +5,18 @@
 #Y  Copyright (C) 1999,      Franz G"ahler,        ITAP, Stuttgart University
 ##
 
-DeclarePackage( "carat", "1.1", function()
+DeclareAutoPackage( "carat", "1.1", function()
   local path;
   # Carat is available only on UNIX
   if not ARCH_IS_UNIX() then
-     Info( InfoWarning, 1, "Package CARAT is available only on UNIX" );
+     Info( InfoWarning, 3, "Package CARAT is available only on UNIX" );
      return false;
   fi;  
   # test for existence of a compiled binary
   # since there are so many, we don't test for all, hoping for the best
   path := DirectoriesPackagePrograms( "carat" );
   if Filename( path, "Z_equiv" ) = fail then
-     Info( InfoWarning, 1, "Package CARAT: The binaries must be compiled" );
+     Info( InfoWarning, 3, "Package CARAT: The binaries must be compiled" );
      return false;
   fi;
   return true;
