@@ -51,6 +51,8 @@ options=$*
 ##
 ##  Run the test for all documentation files (in some arbitrary order).
 ##
+$mktest $options introduction
+$mktest $options installation
 $mktest $options -r carat carat
 $mktest $options manual
 
