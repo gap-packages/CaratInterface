@@ -8,7 +8,7 @@ cd ../..
 
 # first the binary files
 echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.dvi
-echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/carat.1.1b.tar.gz
+echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/carat-1.2.tar.gz
 
 # then the text files
 echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.tex
