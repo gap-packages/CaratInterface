@@ -3,4 +3,4 @@ rm manual.aux manual.dvi manual.idx manual.ilg manual.ind manual.lab manual.log 
 tex manual
 ../../../doc/manualindex manual
 tex manual
-../../../etc/convert.pl -c -n carat . ../htm
+../../../etc/convert.pl -c -i -n carat . ../htm
