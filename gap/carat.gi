@@ -19,15 +19,6 @@ end );
 
 #############################################################################
 ##
-#F  IsDigit( char )  . . . . . . . . . . . . . . . . . . . . is char a digit?
-##
-IsDigit := function( char )
-    return char <= '9' and char >= '0';
-end;
-
-
-#############################################################################
-##
 #F  CaratReadLine( input )  . . . . . . . . . . read line and discard comment
 ##
 CaratReadLine := function( input )
@@ -59,7 +50,7 @@ CaratNextNumber := function( str, start )
 
     len  := Length( str );
     pos1 := start;
-    while pos1 <= len and not IsDigit( str[pos1] ) do
+    while pos1 <= len and not IsDigitChar( str[pos1] ) do
         pos1 := pos1 + 1;
     od;
     if pos1 > len then
@@ -69,7 +60,7 @@ CaratNextNumber := function( str, start )
     fi;
 
     pos2 := pos1 + 1;
-    while pos2 <= len and IsDigit( str[pos2] ) do
+    while pos2 <= len and IsDigitChar( str[pos2] ) do
         pos2 := pos2 + 1;
     od;
     CaratReadPosition := pos2;
