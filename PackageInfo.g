@@ -7,6 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "Carat",
 
+Subtitle := "Interface to CARAT, a crystallographic groups package",
+
 Version := "1.1.1",
 
 Date := "18/6/2003",
@@ -55,11 +57,12 @@ PackageWWWHome := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/packages
 PackageDoc  := rec(
   BookName  := "Carat",
   Archive   := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-doc-1.1.1.zoo",
+  ArchiveURLSubset := ["doc", "htm"],
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Interface to CARAT, a crystallographic groups package",
-  AutoLoad  := true
+  Autoload  := true
 ),
 
 Dependencies := rec(
