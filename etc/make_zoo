@@ -7,30 +7,30 @@ rm -f carat.zoo
 cd ../..
 
 # first the binary files
-echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.dvi
-echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.pdf
-echo "\!BINARY\!\n/END" | zoo ach carat/etc/carat.zoo carat/carat-1.2.tar.gz
+echo "!BINARY!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.dvi
+echo "!BINARY!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.pdf
+echo "!BINARY!\n/END" | zoo ach carat/etc/carat.zoo carat/carat-1.2.tar.gz
 
 # then the text files
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.tex
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.bbl
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.six
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.lab
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.mst
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.ps
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/carat.tex
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/introduction.tex
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/installation.tex
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/make_doc
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/init.g
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/read.g
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/README
-echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo carat/Changelog
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.tex
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.bbl
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.six
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.lab
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.mst
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/manual.ps
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/carat.tex
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/introduction.tex
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/installation.tex
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/doc/make_doc
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/init.g
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/read.g
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/README
+echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo carat/Changelog
 for file in carat/gap/*.g[di] ; do
-  echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
+  echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo $file
 done
 for file in carat/htm/*.htm ; do
-  echo "\!TEXT\!\n/END" | zoo ach carat/etc/carat.zoo $file
+  echo "!TEXT!\n/END" | zoo ach carat/etc/carat.zoo $file
 done
 
 # check result
