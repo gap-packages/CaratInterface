@@ -56,11 +56,13 @@ CaratNextNumber := function( str, start )
 
     len  := Length( str );
     pos1 := start;
-    while pos1 <= len and not IsDigit( str[pos1] ) and str[pos1] <> '-' do
+    while pos1 <= len and not IsDigit( str[pos1] ) do
         pos1 := pos1 + 1;
     od;
     if pos1 > len then
         return fail;
+    elif pos1 > 1 and str[pos1-1] = '-' then
+        pos1 := pos1 - 1;
     fi;
 
     pos2 := pos1 + 1;
@@ -553,7 +555,9 @@ InstallGlobalFunction( CaratReadQtoZFile, function( filename )
 
     # shall we do something with the stuff discarded here?
     str   := CaratReadLine( input );
-    str   := CaratReadLine( input );
+    while str[1] <> '#' do
+        str   := CaratReadLine( input );
+    od;
     n     := CaratNextNumber( str, 1 );
     res   := CaratReadBravaisRecords( input, n );
 
