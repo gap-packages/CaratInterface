@@ -75,6 +75,18 @@ DeclareGlobalFunction( "BravaisGroupsCrystalFamily" );
 
 #############################################################################
 ##
+#F  CaratQClassCatalog( grp, mode )  . . . . . . . . .  access QClass catalog 
+##
+DeclareGlobalFunction( "CaratQClassCatalog" );
+
+#############################################################################
+##
+#F  ConjugatorQClass( G1, G2 ) . . . .conjugator in GL(n,Q) between G1 and G2 
+##
+DeclareGlobalFunction( "ConjugatorQClass" );
+
+#############################################################################
+##
 #F  CaratShowFile( filename )  . . . . . . . . . display contents of filename
 ##
 DeclareGlobalFunction( "CaratShowFile" );

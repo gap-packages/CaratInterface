@@ -54,7 +54,7 @@ In our example, we install Carat in /gap4/pkg/carat (the Carat tar
 file should already be there):
 
     cd /gap4/pkg/carat
-    zcat carat.1.1.tar.gz | tar xf -
+    zcat carat.1.1b.tar.gz | tar xf -
     ln -s carat/bin bin
     cd carat
 
@@ -85,9 +85,6 @@ before making Carat. If you want to unpack the catalog later, just
 remove the empty directory tables/qcatalog, and do
 
     make Qcatalog
-
-
-
 
 
 

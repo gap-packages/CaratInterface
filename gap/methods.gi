@@ -484,3 +484,136 @@ InstallGlobalFunction( BravaisGroupsCrystalFamily, function( symb )
 
 end ); 
 
+
+#############################################################################
+##
+#F  CaratQClassCatalog( grp, mode )  . . . . . . . . .  access QClass catalog
+##
+##  Takes a finite unimodular group <grp> and an integer <mode>, and
+##  returns a record with one or several of the following components,
+##  depending on the decomposition of <mode> = <n0> + <n1> * 2 + <n2> * 4
+##  into powers of 2:
+##
+##    qclass        Q-class symbol             - always present
+##    familysymb    crystal family symbol      - present if <n0> <> 0
+##    trans         trafo to standard rep.     - present if <n1> <> 0
+##    group         standard representation    - present if <n2> <> 0
+##
+InstallGlobalFunction( CaratQClassCatalog, function( grp , mode )
+
+    local rem, with_symb, with_trans, with_group, grpfile, resfile, gen,
+          res, data, args, input, str;
+
+    # check options
+    rem := mode mod 2; mode := (mode - rem) / 2; with_symb  := rem <> 0;
+    rem := mode mod 2; mode := (mode - rem) / 2; with_trans := rem <> 0;
+    rem := mode mod 2; mode := (mode - rem) / 2; with_group := rem <> 0;
+
+    # group must be integer and finite
+    if not IsIntegerMatrixGroup( grp ) then
+        Error( "grp must be an integer matrix group" );
+    fi;
+    if not IsFinite( grp ) then
+        Error( "grp must be finite" );
+    fi;
+
+    # get temporary file names
+    grpfile := CaratTmpFile( "grp" );  
+    resfile := CaratTmpFile( "res" );
+
+    # write Carat input to temporary file
+    gen := GeneratorsOfGroup( grp );
+    if gen = [] then
+        gen := [ One(grp) ];
+    fi;
+    data := rec( generators := gen, size := Size( grp ) );
+    CaratWriteBravaisFile( grpfile, data );
+
+    # add options
+    args := grpfile;
+    if with_symb  then
+        args := Concatenation( args, " -s" );
+    fi;
+    if with_trans then
+        args := Concatenation( args, " -T" );
+    fi;
+    if with_group then
+        args := Concatenation( args, " -i" );
+    fi;
+
+    # execute Carat program
+    CaratCommand( "Q_catalog", args, resfile );
+
+    # parse the result file
+    res := rec();
+    input := InputTextFile( resfile );
+
+    # get the QClass name
+    str   := CaratReadLine( input );
+    if str{[1..22]} <> "Name of this Q-class: " then
+        Error( Concatenation( 
+               "Carat program Q_catalog failed with message\n", str ) );
+    fi;
+    res.qclass := str{[23..Length(str)-1]};
+
+    # get the family symbol
+    if with_symb then
+        str := CaratReadLine( input );
+        res.familysymb := str{[21..Length(str)-1]};
+    fi;
+
+    # get the transformation matrix
+    if with_trans then
+        str := CaratReadLine( input );
+        res.trans := CaratReadMatrix( input, str );
+    fi;
+
+    # get the equivalent catalog group
+    if with_group then
+        str := CaratReadLine( input );
+        data := CaratReadBravaisRecord( input, str );
+        res.group := GroupByGenerators( data.generators, One( grp ) );
+        if IsBound( data.size ) then
+            SetSize( res.group, data.size );
+        fi;
+    fi;
+
+    return res;
+
+end );
+
+#############################################################################
+##
+#F  ConjugatorQClass( G1, G2 ) . . . . . .returns C in GL(n,Q) with G1^C = G2 
+##
+InstallGlobalFunction( "ConjugatorQClass", function( G1, G2 )
+
+    local R1, R2;
+
+    if not IsIntegerMatrixGroup( G1 ) or not IsFinite( G1 ) then
+        Error( "G1 must be a finite integer matrix group" );
+    fi;
+    if not IsIntegerMatrixGroup( G2 ) or not IsFinite( G2 ) then
+        Error( "G2 must be a finite integer matrix group" );
+    fi;
+
+    if DimensionOfMatrixGroup( G1 ) <> DimensionOfMatrixGroup( G2 ) then
+        return fail;
+    fi;
+    if Size( G1 ) <> Size( G2 ) then
+        return fail;
+    fi;
+    if DimensionOfMatrixGroup(G1) > 6 or DimensionOfMatrixGroup(G2) > 6 then
+        Error( "ConjugatorQClass: only dimensions up to 6 are supported ");
+    fi;
+
+    R1 := CaratQClassCatalog( G1, 2 );
+    R2 := CaratQClassCatalog( G2, 2 );
+    if R1.qclass <> R2.qclass then
+        return fail;
+    else
+        return R2.trans^-1*R1.trans;
+    fi;
+
+end );
+
