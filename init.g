@@ -12,8 +12,8 @@ DeclareAutoPackage( "carat", "1.1", function()
      Info( InfoWarning, 3, "Package CARAT is available only on UNIX" );
      return false;
   fi;  
-  # test for existence of a compiled binary
-  # since there are so many, we don't test for all, hoping for the best
+  # test for existence of a compiled binary; since there are
+  # so many, we don't test for all of them, hoping for the best
   path := DirectoriesPackagePrograms( "carat" );
   if Filename( path, "Z_equiv" ) = fail then
      Info( InfoWarning, 3, "Package CARAT: The binaries must be compiled" );
