@@ -5,4 +5,10 @@ Version 1.1:
 
   - switch to Carat 1.2
 
+version 1.1.1
+
+  - made CARAT_TMP_DIR work with saved workspaces
+
+  - CaratInvariantFormSpace implemented, but not yet documented
+
 

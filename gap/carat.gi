@@ -13,6 +13,12 @@
 #F  CaratTmpFile( name ) . . . . . returns file 'name' in Carat tmp directory
 ##
 InstallGlobalFunction( CaratTmpFile, function( name )
+    # if Carat temporary directory has disappeared, recreate it
+    if not IsDirectoryPath( CARAT_TMP_DIR![1] ) then
+        MakeReadWriteGlobal( "CARAT_TMP_DIR" );
+        UnbindGlobal( "CARAT_TMP_DIR" );
+        BindGlobal( "CARAT_TMP_DIR", DirectoryTemporary() );
+    fi;
     return Filename( CARAT_TMP_DIR, name );
 end );
 

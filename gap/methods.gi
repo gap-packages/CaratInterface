@@ -617,3 +617,82 @@ InstallGlobalFunction( "ConjugatorQClass", function( G1, G2 )
 
 end );
 
+#############################################################################
+##
+#F  CaratInvariantFormSpace( grp [, opts] ) . . . .  space of invariant forms 
+##
+CaratInvariantFormSpace := function( arg )
+
+    local grp, opts, optstring, gens, lat, ilat, tilat, 
+          grpfile, resfile, forms;
+
+    # check arguments
+    grp := arg[1];
+    if not IsRationalMatrixGroup( grp ) then
+        Error( "grp must be a rational matrix group" );
+    fi;
+    if Length( arg ) > 1 then
+        opts := arg[2];
+        if not IsRecord( opts ) then
+            Error( "opts must be a record" );
+        fi;
+    else
+        opts := rec();
+    fi;
+
+    # process options
+    optstring := "";
+    if IsBound( opts.mode ) then
+        if opts.mode = "all" then
+            Append( optstring, " -a" );
+        elif opts.mode = "skew" then
+            Append( optstring, " -s" );
+        elif opts.mode <> "sym" then
+            Error( "opts.mode must be \"sym\", \"skew\", or \"all\"" );
+        fi;
+    fi;
+    if IsBound( opts.prime ) then
+        if not IsPrime( opts.prime ) then
+            Error( "opts.prime must be a prime" );
+        fi;
+        Append( optstring, " -p=" );
+        Append( optstring, String( opts.prime ) );
+    fi;
+
+    # convert to integer matrix group
+    gens := GeneratorsOfGroup( grp );
+    if not IsIntegerMatrixGroup( grp ) then
+        lat := InvariantLattice( grp );
+        if IsBool( lat ) then
+            return fail;
+        fi;
+        ilat := lat^-1;
+        gens := List( gens, m -> TransposedMat( lat * m * ilat ) );
+    else
+        gens := List( gens, m -> TransposedMat( m ) );
+    fi;
+
+    # get temporary file names
+    grpfile   := CaratTmpFile( "grp"  );
+    resfile   := CaratTmpFile( "res" );
+    optstring := Concatenation( grpfile, optstring );
+
+    # write Carat input to temporary file
+    CaratWriteBravaisFile( grpfile, rec( generators := gens ) );
+
+    # execute Carat program
+    CaratCommand( "Form_space", optstring, resfile );
+
+    # read back result, and remove temporary files
+    forms := CaratReadMatrixFile( resfile );
+    RemoveFile( grpfile );
+    RemoveFile( resfile );
+
+    # convert to original basis
+    if not IsIntegerMatrixGroup( grp ) then
+       tilat := TransposedMat( ilat );
+       forms := List( forms, m -> ilat * m * tilat );
+    fi;
+    return forms;
+
+end;
