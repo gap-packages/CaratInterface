@@ -397,7 +397,37 @@ InstallValue( CaratCrystalFamilies, [
 ##
 #M  CaratCrystalFamiliesFlat . . flat list of crystal family symbols in Carat
 ##
-InstallValue( CaratCrystalFamiliesFlat, Flat( CaratCrystalFamilies ) ); 
+CaratPermutedSymbols := function( symb )
+
+    local str, lst, pos, new, l, i;
+
+    str := symb;
+    lst := [];
+    pos := Position( str, ';' );
+    while pos <> fail do
+        Add( lst, str{[1..pos-1]} );
+        str := str{[pos+1..Length(str)]};
+        pos := Position( str, ';' );
+    od;
+    Add( lst, str );
+
+    lst := PermutationsList( lst );
+    
+    new := [];
+    for l in lst do
+        str := l[1];
+        for i in [2..Length(l)] do
+            str := Concatenation( str, ";", l[i] );
+        od;
+        Add( new, str );
+    od;
+
+    return new;
+
+end;
+
+InstallValue( CaratCrystalFamiliesFlat, Concatenation( 
+    List( Concatenation( CaratCrystalFamilies ), CaratPermutedSymbols ) ) ); 
 
 
 #############################################################################
