@@ -336,7 +336,7 @@ function( grp )
     CaratWriteBravaisFile( grpfile, data );
 
     # execute Carat program
-    CaratCommand( "QtoZ", grpfile, resfile );
+    CaratCommand( "QtoZ", Concatenation( grpfile, " -q" ), resfile );
 
     # read Carat result from file, and remove temporary files
     data := CaratReadMultiBravaisFile( resfile );
