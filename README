@@ -49,7 +49,7 @@ This package must be installed in the pkg subdirectory of any of
 the GAP 4 root directories. We assume here that this is /gap4/pkg.
 
     cd /gap4/pkg
-    unzoo -x carat.zoo
+    unzoo -x carat-2.0.1.zoo
 
 This creates a subdirectory carat, the home directory of this interface
 package. CARAT itself can be installed anywhere on your system. 
@@ -60,7 +60,7 @@ In our example, we install Carat in /gap4/pkg/carat (the CARAT tar
 file should already be there):
 
     cd /gap4/pkg/carat
-    zcat carat.1.2.tar.gz | tar xf -
+    zcat carat-2.0.tar.gz | tar xf -
     ln -s carat/bin bin
     cd carat
 
@@ -78,8 +78,8 @@ Like any other GAP 4 package, Carat is then loaded in GAP with
 
     RequirePackage("carat");
 
-This package, together with CARAT itself, takes some 60Mb of disk space,
-or more, depending on the system. Some 33Mb is taken by the catalog
+This package, together with CARAT itself, takes some 130Mb of disk space,
+or more, depending on the system. Some 100Mb is taken by the catalog
 of Q-classes of integer matrix groups up to dimension 6. If you want
 to avoid unpacking this catalog, you can create empty subdirectories
 
@@ -91,5 +91,3 @@ before making CARAT. If you want to unpack the catalog later, just
 remove the empty directory tables/qcatalog, and do
 
     make Qcatalog
-
-

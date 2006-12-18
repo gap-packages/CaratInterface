@@ -9,11 +9,12 @@ PackageName := "Carat",
 
 Subtitle := "Interface to CARAT, a crystallographic groups package",
 
-Version := "1.1.1",
+Version := "2.0.1",
 
-Date := "18/6/2003",
+Date := "18/12/2006",
 
-ArchiveURL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-1.1.1",
+ArchiveURL := 
+  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-2.0.1",
 
 ArchiveFormats := ".zoo",
 
@@ -37,8 +38,10 @@ CommunicatedBy := "Herbert Pahlings (Aachen)",
 
 AcceptDate := "02/2000",
 
-README_URL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/README.carat",
-PackageInfoURL := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/PackageInfo.g",
+README_URL := 
+  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/README.carat",
+PackageInfoURL := 
+  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/PackageInfo.g",
 
 AbstractHTML := 
 "This package provides <span class=\"pkgname\">GAP</span> interface \
@@ -52,11 +55,11 @@ finite unimodular groups in GL(n,Z), and routines for the computation \
 of Bravais groups, which are all missing in <span class=\"pkgname\">Cryst\
 </span>. A catalog of Bravais groups up to dimension 6 is also provided.",
 
-PackageWWWHome := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/packages.html",
+PackageWWWHome := 
+  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/packages.php",
 
 PackageDoc  := rec(
   BookName  := "Carat",
-  Archive   := "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-doc-1.1.1.zoo",
   ArchiveURLSubset := ["doc", "htm"],
   HTMLStart := "htm/chapters.htm",
   PDFFile   := "doc/manual.pdf",

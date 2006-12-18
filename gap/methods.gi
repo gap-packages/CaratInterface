@@ -2,7 +2,7 @@
 ##
 #W  methods.gi             Interface to Carat                   Franz G"ahler
 ##
-#Y  Copyright (C) 1999,      Franz G"ahler,        ITAP, Stuttgart University
+#Y  Copyright (C) 1999-1006,  Franz G"ahler,       ITAP, Stuttgart University
 ##
 ##  Methods for high level functions using Carat
 ##
@@ -62,7 +62,7 @@ end );
 ##
 CaratBravaisInclusions := function( grp, opt )
 
-    local grpfile, resfile, gen, data, args, output, grps, str, res, g;
+    local grpfile, resfile, gen, data, args, output, grps, str, res, g, r;
 
     # get temporary file names
     grpfile := CaratTmpFile( "grp" );  
@@ -87,11 +87,12 @@ CaratBravaisInclusions := function( grp, opt )
     RemoveFile( resfile );
 
     # convert result into desired format
-    res := List( grps, x -> GroupByGenerators( x.generators, One(grp) ) );
-    for g in res do
-        SetSize( g, grps[1].size );
+    res := [];
+    for r in grps do
+      g := GroupByGenerators( r.generators, One(grp) );
+      SetSize( g, r.size );
+      Add( res, g );
     od;
-
     return res;
 
 end;
@@ -313,7 +314,7 @@ InstallMethod( ZClassRepsQClass,
     true, [ IsCyclotomicMatrixGroup ], 0,
 function( grp )
 
-    local grpfile, resfile, gen, data, output, str, res, g;
+    local grpfile, resfile, gen, data, output, str, res, g, r;
 
     # group must be rational and finite
     if not IsRationalMatrixGroup( grp ) then
@@ -344,9 +345,11 @@ function( grp )
     RemoveFile( resfile );
 
     # convert result into desired format
-    res := List( data.groups, x -> GroupByGenerators( x.generators ) );
-    for g in res do
-        SetSize( g, data.groups[1].size );
+    res := [];
+    for r in data.groups do
+        g := GroupByGenerators( r.generators );
+        SetSize( g, r.size );
+        Add( res, g );
     od;
 
     return res;
@@ -437,7 +440,7 @@ InstallValue( CaratCrystalFamiliesFlat, Concatenation(
 InstallGlobalFunction( BravaisGroupsCrystalFamily, function( symb )
 
     local resfile, outfile, input, command, program, output, 
-          err, data, str, res, g;
+          err, data, str, res, g, r;
 
     if not symb in CaratCrystalFamiliesFlat then
         Error("invalid crystal family symbol - please consult Carat manual");
@@ -475,9 +478,11 @@ InstallGlobalFunction( BravaisGroupsCrystalFamily, function( symb )
     RemoveFile( resfile );
 
     # convert result into desired format
-    res := List( data.groups, x -> GroupByGenerators( x.generators ) );
-    for g in res do
-        SetSize( g, data.groups[1].size );
+    res := [];
+    for r in data.groups do
+        g := GroupByGenerators( r.generators );
+        SetSize( g, r.size );
+        Add( res, g );
     od;
 
     return res;
