@@ -2,7 +2,7 @@
 ##
 #W  methods.gi             Interface to Carat                   Franz G"ahler
 ##
-#Y  Copyright (C) 1999-1006,  Franz G"ahler,       ITAP, Stuttgart University
+#Y  Copyright (C) 1999-2012  Franz G"ahler,  Mathematik, Bielefeld University
 ##
 ##  Methods for high level functions using Carat
 ##

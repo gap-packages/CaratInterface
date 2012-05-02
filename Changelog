@@ -29,5 +29,22 @@ Version 2.0.1
 
   - BravaisGroupsCrystalFamily stored wrong sizes in groups.
 
+Version 2.0.2
+
+  - included updated version of CARAT 2.0 with a newer version of GMP,
+    which compiles also with gcc 4.1.
+
+Version 2.1
+
+  - update to CARAT version 2.1b1
+
+Version 2.1.1
+
+  - update to GAP version 4.5
+
+Version 2.1.2
+
+  - small fix in PackageInfo.g
+
 
 

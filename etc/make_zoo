@@ -1,9 +1,12 @@
 #!/bin/sh
 
-PKGZOO=carat-2.0.1.zoo
+PKGZOO=carat-2.1.2.zoo
 
 # remove old archive
 rm -f $PKGZOO
+
+# update documentaion
+(cd ../doc; ./make_doc; chmod a+r *; cd ../htm; chmod a+r *)
 
 # goto <gaproot>/pkg
 cd ../..
@@ -13,7 +16,7 @@ cd ../..
 # first the binary files
 echo "!BINARY!" | zoo ach carat/etc/$PKGZOO carat/doc/manual.dvi
 echo "!BINARY!" | zoo ach carat/etc/$PKGZOO carat/doc/manual.pdf
-echo "!BINARY!" | zoo ach carat/etc/$PKGZOO carat/carat-2.0.tar.gz
+echo "!BINARY!" | zoo ach carat/etc/$PKGZOO carat/carat-2.1b1.tgz
 
 # then the text files
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/doc/manual.tex
@@ -32,6 +35,7 @@ echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/init.g
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/read.g
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/README
 echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/Changelog
+echo "!TEXT!" | zoo ach carat/etc/$PKGZOO carat/GPL
 for file in carat/gap/*.g[di] ; do
   echo "!TEXT!" | zoo ach carat/etc/$PKGZOO $file
 done
@@ -41,4 +45,5 @@ done
 
 # check the results
 cd carat/etc
+chmod a+r $PKGZOO
 zoo -list $PKGZOO

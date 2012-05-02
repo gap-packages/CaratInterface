@@ -33,11 +33,12 @@ to the CARAT authors at
 The GAP interface routines to CARAT have been written by
 
     Franz G\"ahler
-    Institut f\"ur Theoretische und Angewandte Physik 
-    Universit\"at Stuttgart, Pfaffenwaldring 57
-    D-70550 Stuttgart
+    Fakult\"at f\"ur Mathematik 
+    Universit\"at Bielefeld 
+    Postfach 10 01 31 
+    D-33501 Bielefeld
 
-    gaehler@itap.physik.uni-stuttgart.de
+    gaehler@math.uni-bielefeld.de
 
 to whom bug reports regarding these interface routines should be
 addressed.
@@ -49,7 +50,7 @@ This package must be installed in the pkg subdirectory of any of
 the GAP 4 root directories. We assume here that this is /gap4/pkg.
 
     cd /gap4/pkg
-    unzoo -x carat-2.0.1.zoo
+    tar zxf carat-2.1.2.tar.gz
 
 This creates a subdirectory carat, the home directory of this interface
 package. CARAT itself can be installed anywhere on your system. 
@@ -60,30 +61,41 @@ In our example, we install Carat in /gap4/pkg/carat (the CARAT tar
 file should already be there):
 
     cd /gap4/pkg/carat
-    zcat carat-2.0.tar.gz | tar xf -
-    ln -s carat/bin bin
-    cd carat
+    zcat carat-2.1b1.tgz | tar pxf -
+    ln -s carat-2.1b1/bin bin
+    cd carat-2.1b1
 
-This creates a subdirectory /gap4/pkg/carat/carat, the CARAT top level
+This creates a subdirectory /gap4/pkg/carat/carat-2.1b1, the CARAT top level
 directory. You have to edit the Makefile in that directory. In particular,
-you have to set the variables TOPDIR (to /gap4/pkg/carat/carat), CC, and
-CFLAGS (to your favourite set of compiler options). Then do 
+you have to set the variables TOPDIR (to /gap4/pkg/carat/carat-2.1b1), CC, 
+and CFLAGS (to your favourite set of compiler options). Then do 
 
     make
 
 If you build for more than one architecture, make sure to do a 
 'make clean' in between.
 
+You now have to check which subdirectory containing the CARAT 
+binaries has been created in the bin directory. The name of this
+subdirectory must be the same as that in the main GAP bin directory,
+/gap4/bin. If the names differ, you might have to add a symbolic
+link to correct this. For instance, if the CARAT bin directory
+contains i686-pc-linux-gnu-gcc, but in the GAP bin directory,
+you find i686-pc-linux-gnu-gcc-default32, you would have to do this:
+
+    cd bin
+    ln -s i686-pc-linux-gnu-gcc i686-pc-linux-gnu-gcc-default32
+
 Like any other GAP 4 package, Carat is then loaded in GAP with
 
-    RequirePackage("carat");
+    LoadPackage("carat");
 
-This package, together with CARAT itself, takes some 130Mb of disk space,
-or more, depending on the system. Some 100Mb is taken by the catalog
+This package, together with CARAT itself, takes some 210Mb of disk space,
+or more, depending on the system. Some 170Mb is taken by the catalog
 of Q-classes of integer matrix groups up to dimension 6. If you want
 to avoid unpacking this catalog, you can create empty subdirectories
 
-    cd /gap4/pkg/carat/carat
+    cd /gap4/pkg/carat/carat-2.1b1
     mkdir tables
     mkdir tables/qcatalog
 

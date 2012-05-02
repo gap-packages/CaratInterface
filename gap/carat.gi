@@ -2,7 +2,7 @@
 ##
 #W  carat.gi               Interface to Carat                   Franz G"ahler
 ##
-#Y  Copyright (C) 1999,      Franz G"ahler,        ITAP, Stuttgart University
+#Y  Copyright (C) 1999-2012  Franz G"ahler,  Mathematik, Bielefeld University
 ##
 ##  Input/Output routines for interfacing with Carat data files
 ##

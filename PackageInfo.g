@@ -9,26 +9,28 @@ PackageName := "Carat",
 
 Subtitle := "Interface to CARAT, a crystallographic groups package",
 
-Version := "2.0.1",
+Version := "2.1.2",
 
-Date := "18/12/2006",
+Date := "02/05/2012",
 
 ArchiveURL := 
-  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/carat-2.0.1",
+  "http://www.math.uni-bielefeld.de/~gaehler/gap45/Carat/carat-2.1.2",
 
-ArchiveFormats := ".zoo",
+ArchiveFormats := ".tar.gz",
+
+BinaryFiles := [ "doc/manual.pdf", "doc/manual.dvi", "carat-2.1b1.tgz" ],
 
 Persons := [
   rec(
-    LastName := "G‰hler",
+    LastName := "G√§hler",
     FirstNames := "Franz",
     IsAuthor := true,
     IsMaintainer := true,
-    Email := "gaehler@itap.physik.uni-stuttgart.de",
-    WWWHome := "http://www.itap.physik.uni-stuttgart.de/~gaehler/",
+    Email := "gaehler@math.uni-bielefeld.de",
+    WWWHome := "http://www.math.uni-bielefeld.de/~gaehler/",
     #PostalAddress := "",           
-    Place := "Stuttgart",
-    Institution := "ITAP, Universit‰t Stuttgart"
+    Place := "Bielefeld",
+    Institution := "Mathematik, Universit√§t Bielefeld"
   )
 ],
 
@@ -39,9 +41,9 @@ CommunicatedBy := "Herbert Pahlings (Aachen)",
 AcceptDate := "02/2000",
 
 README_URL := 
-  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/README.carat",
+  "http://www.math.uni-bielefeld.de/~gaehler/gap45/Carat/README.carat",
 PackageInfoURL := 
-  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/Carat/PackageInfo.g",
+  "http://www.math.uni-bielefeld.de/~gaehler/gap45/Carat/PackageInfo.g",
 
 AbstractHTML := 
 "This package provides <span class=\"pkgname\">GAP</span> interface \
@@ -56,7 +58,7 @@ of Bravais groups, which are all missing in <span class=\"pkgname\">Cryst\
 </span>. A catalog of Bravais groups up to dimension 6 is also provided.",
 
 PackageWWWHome := 
-  "http://www.itap.physik.uni-stuttgart.de/~gaehler/gap/packages.php",
+  "http://www.math.uni-bielefeld.de/~gaehler/gap45/packages.php",
 
 PackageDoc  := rec(
   BookName  := "Carat",
@@ -69,9 +71,9 @@ PackageDoc  := rec(
 ),
 
 Dependencies := rec(
-  GAP := ">=4.2",
+  GAP := ">=4.5",
   NeededOtherPackages := [],
-  SuggestedOtherPackages := [],
+  SuggestedOtherPackages := [ [ "Cryst", ">=4.1.8" ],
   ExternalConditions := []
 ),
 
@@ -79,20 +81,18 @@ AvailabilityTest := function()
   local path;
   # Carat is available only on UNIX
   if not ARCH_IS_UNIX() then
-     Info( InfoWarning, 3, "Package Carat is available only on UNIX" );
+     LogPackageLoadingMessage(PACKAGE_ERROR, "Carat is restricted to UNIX" );
      return false;
   fi;  
   # test the existence of a compiled binary; since there are
   # so many, we do not test for all of them, hoping for the best
   path := DirectoriesPackagePrograms( "carat" );
   if Filename( path, "Z_equiv" ) = fail then
-     Info( InfoWarning, 3, "Package Carat: The binaries must be compiled" );
+     LogPackageLoadingMessage(PACKAGE_ERROR, "Carat binaries must be compiled" );
      return false;
   fi;
   return true;
 end,
-
-Autoload := true,
 
 #TestFile := "tst/testall.g",
 
