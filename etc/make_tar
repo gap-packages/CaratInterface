@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PKGTAR=carat-2.1.2.tar
+PKGTAR=carat-2.1.3.tar
 
 # remove old archive
 rm -f $PKGTAR*

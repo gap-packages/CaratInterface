@@ -1,6 +1,6 @@
 <?php 
-  $Carat_Version    = '2.1.2'; 
+  $Carat_Version    = '2.1.3'; 
   $CARAT_Version    = '2.1b1';
-  $Carat_Date       = '02 May 2012';
+  $Carat_Date       = '07 May 2012';
   $Carat_Size       = '9011 kB';
 ?>

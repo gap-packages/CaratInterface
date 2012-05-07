@@ -9,12 +9,12 @@ PackageName := "Carat",
 
 Subtitle := "Interface to CARAT, a crystallographic groups package",
 
-Version := "2.1.2",
+Version := "2.1.3",
 
-Date := "02/05/2012",
+Date := "07/05/2012",
 
 ArchiveURL := 
-  "http://www.math.uni-bielefeld.de/~gaehler/gap45/Carat/carat-2.1.2",
+  "http://www.math.uni-bielefeld.de/~gaehler/gap45/Carat/carat-2.1.3",
 
 ArchiveFormats := ".tar.gz",
 
@@ -73,7 +73,7 @@ PackageDoc  := rec(
 Dependencies := rec(
   GAP := ">=4.5",
   NeededOtherPackages := [],
-  SuggestedOtherPackages := [ [ "Cryst", ">=4.1.8" ] ],
+  SuggestedOtherPackages := [ [ "Cryst", ">=4.1.9" ] ],
   ExternalConditions := []
 ),
 
@@ -81,14 +81,14 @@ AvailabilityTest := function()
   local path;
   # Carat is available only on UNIX
   if not ARCH_IS_UNIX() then
-     LogPackageLoadingMessage(PACKAGE_ERROR, "Carat is restricted to UNIX" );
+     LogPackageLoadingMessage(PACKAGE_INFO, "Carat is restricted to UNIX" );
      return false;
   fi;  
   # test the existence of a compiled binary; since there are
   # so many, we do not test for all of them, hoping for the best
   path := DirectoriesPackagePrograms( "carat" );
   if Filename( path, "Z_equiv" ) = fail then
-     LogPackageLoadingMessage(PACKAGE_ERROR, "Carat binaries must be compiled" );
+     LogPackageLoadingMessage(PACKAGE_WARNING, "Carat binaries must be compiled" );
      return false;
   fi;
   return true;
