@@ -50,7 +50,7 @@ This package must be installed in the pkg subdirectory of any of
 the GAP 4 root directories. We assume here that this is /gap4/pkg.
 
     cd /gap4/pkg
-    tar zxf carat-2.1.2.tar.gz
+    tar zpxf carat-2.1.4.tar.gz
 
 This creates a subdirectory carat, the home directory of this interface
 package. CARAT itself can be installed anywhere on your system. 

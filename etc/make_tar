@@ -1,22 +1,24 @@
 #!/bin/sh
 
-PKGTAR=carat-2.1.3.tar
+PKGTAR=carat-2.1.4.tar
 
 # remove old archive
 rm -f $PKGTAR*
 
 # update documentaion
-(cd ../doc; ./make_doc; chmod a+r *; cd ../htm; chmod a+r *)
-
-# goto <gaproot>/pkg
-cd ../..
+(cd ../doc; ./make_doc;)
 
 # make the package archive
-tar cvf carat/etc/$PKGTAR carat/doc/manual.* carat/doc/*.tex \
-  carat/doc/make_doc carat/*.g carat/README carat/Changelog carat/GPL \
-  carat/gap/*.g[di] carat/htm/*.htm carat/carat-2.1b1.tgz
-
-# compress the result
-cd carat/etc
-chmod a+r $PGKTAR
+mkdir -p carat/doc carat/gap carat/htm
+cp -p ../*.g ../README ../Changelog ../GPL ../carat-2.1b1.tgz carat/
+cp -p ../doc/manual.bbl ../doc/manual.six ../doc/manual.lab ../doc/manual.toc \
+  ../doc/manual.mst ../doc/manual.pdf ../doc/*.tex ../doc/make_doc carat/doc/
+cp -p ../gap/*.g[di] carat/gap/
+cp -p ../htm/*.htm carat/htm/
+chmod -R a+rX carat 
+tar cvf $PKGTAR carat
+chmod a+r $PKGTAR
 gzip $PKGTAR
+
+# cleanup
+rm -rf carat

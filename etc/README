@@ -2,6 +2,7 @@ For a new release, the following needs to be done:
 
 - edit date and version in:
 
+  README
   Changelog
   PackageInfo.g
   etc/VERSION
