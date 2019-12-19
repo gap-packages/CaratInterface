@@ -4,7 +4,7 @@ tex manual
 ../../../doc/manualindex manual
 tex manual
 mkdir -p ../htm
-../../../etc/convert.pl -c -i -u -n CARAT . ../htm
+../../../etc/convert.pl -c -i -u -n CARATINTERFACE . ../htm
 pdftex manual
 #dvips -o manual.ps manual
 #ps2pdf manual.ps manual.pdf
