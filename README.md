@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/gap-packages/CaratInterface.svg)](https://travis-ci.com/gap-packages/CaratInterface)
+[![Build Status](https://github.com/gap-packages/CaratInterface/actions/workflows/CI.yml/badge.svg)](https://github.com/gap-packages/CaratInterface/actions/workflows/CI.yml)
 [![Code Coverage](https://codecov.io/github/gap-packages/CaratInterface/coverage.svg)](https://codecov.io/gh/gap-packages/CaratInterface)
 
 The GAP package CaratInterface provides GAP interface routines to
