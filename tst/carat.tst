@@ -122,3 +122,8 @@ gap> BravaisGroupsCrystalFamily( "4-2;1" );
   <matrix group of size 144 with 7 generators>, 
   <matrix group of size 288 with 4 generators>, 
   <matrix group of size 144 with 6 generators> ]
+  
+gap> gens := GeneratorsOfGroup( NormalizerInGLnZ( Group( [ [ [ 1 ] ] ] ) ) );
+[ [ [ -1 ] ] ]
+gap> gens[1]^2;
+[ [ 1 ] ]

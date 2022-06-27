@@ -146,7 +146,7 @@ CaratNormalizerInGLnZFunc := function( grp, opt )
 
     # catch a trivial case
     if DimensionOfMatrixGroup( grp ) = 1 then
-        return GroupByGenerators( -One( grp ) );
+        return GroupByGenerators( [ -One( grp ) ] );
     fi;
     
     # get temporary files
