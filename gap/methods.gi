@@ -554,6 +554,9 @@ InstallGlobalFunction( CaratQClassCatalog, function( grp , mode )
     # execute Carat program
     CaratCommand( "Q_catalog", args, resfile );
 
+    # remove temporary file
+    RemoveFile( grpfile );
+
     # parse the result file
     res := rec();
     input := InputTextFile( resfile );
@@ -587,6 +590,11 @@ InstallGlobalFunction( CaratQClassCatalog, function( grp , mode )
             SetSize( res.group, data.size );
         fi;
     fi;
+
+    CloseStream( input );
+
+    # remove temporary file
+    RemoveFile( resfile );
 
     return res;
 
