@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DIR=CaratInterface
-PKGTAR=$DIR-2.3.5.tar
+PKGTAR=$DIR-2.3.6.tar
 
 # remove old archive
 rm -f $PKGTAR*
