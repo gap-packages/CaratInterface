@@ -461,7 +461,7 @@ InstallGlobalFunction( BravaisGroupsCrystalFamily, function( symb )
     command := "Bravais_catalog";
     program := Filename( CARAT_BIN_DIR, command );    
     if program = fail then
-        Error( Concatenation( "Carat program ", command, " not found." ) );
+        Error( "Carat program ", command, " not found." );
     fi;
 
     # execute command
@@ -474,8 +474,7 @@ InstallGlobalFunction( BravaisGroupsCrystalFamily, function( symb )
         CaratShowFile( resfile );      # contains usage advice
     fi;
     if err < 0  then
-        Error( Concatenation( "Carat program ", command,
-                              " failed with error code ", String(err) ) );
+        Error( "Carat program ", command, " failed with error code ", err );
     fi;
 
     # read Carat result from file, and remove temporary file
@@ -564,8 +563,7 @@ InstallGlobalFunction( CaratQClassCatalog, function( grp , mode )
     # get the QClass name
     str   := CaratReadLine( input );
     if str{[1..22]} <> "Name of this Q-class: " then
-        Error( Concatenation( 
-               "Carat program Q_catalog failed with message\n", str ) );
+        Error( "Carat program Q_catalog failed with message\n", str );
     fi;
     res.qclass := str{[23..Length(str)-1]};
 
