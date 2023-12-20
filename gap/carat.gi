@@ -278,10 +278,6 @@ BindGlobal( "CaratReadBravaisRecord", function( input, str )
 
     res := rec();
 
-    if Position( str, '#' ) = fail then
-
-    fi;
-
     # read group generators
     pos := Position( str, 'g' );
 
@@ -350,6 +346,9 @@ InstallGlobalFunction( CaratReadBravaisFile, function( filename )
 
     input := InputTextFile( filename );
     str   := CaratReadLine( input );
+    if Position( str, '#' ) = fail then
+        Error( "Malformed header in CARAT Bravais file ", filename );
+    fi;
     res   := CaratReadBravaisRecord( input, str );
 
     CloseStream( input );
