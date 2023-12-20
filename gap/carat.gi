@@ -569,7 +569,7 @@ InstallGlobalFunction( CaratShowFile, function( filename )
     local input;
     input := InputTextFile( filename );
     if input = fail then
-        Error( Concatenation( "File ", filename, " not found." ) );
+        Error( "File ", filename, " not found." );
     fi;
     Print( ReadAll( input ) );
     CloseStream( input );
@@ -615,7 +615,7 @@ InstallGlobalFunction( CaratCommand, function( command, args, outfile )
     # find executable
     program := Filename( CARAT_BIN_DIR, command );    
     if program = fail then
-        Error( Concatenation( "Carat program ", command, " not found." ) );
+        Error( "Carat program ", command, " not found." );
     fi;
 
     # execute command
@@ -630,13 +630,12 @@ InstallGlobalFunction( CaratCommand, function( command, args, outfile )
             CaratShowFile( outfile );      # contains usage advice
         else
             CaratShowFile( outfile );
-            Error( Concatenation( "Carat program ", command,
-                     " failed with error code ", String(err), " and the above output" ) );
+            Error( "Carat program ", command,
+                     " failed with error code ", err, " and the above output" );
         fi;
     fi;
     if err < 0 and args <> "-h" then
-        Error( Concatenation( "Carat program ", command,
-                              " failed with error code ", String(err) ) );
+        Error( "Carat program ", command, " failed with error code ", err );
     fi;
 
 end );
