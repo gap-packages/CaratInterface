@@ -41,15 +41,22 @@ fi
 source "$GAPROOT/sysinfo.gap"
 
 # where is the GMP library?
-# if not set by this configure, get the GMP bundled with GAP
-if test -z "$GMPDIR"; then
-    if [[ -d "$GAPROOT/extern/install/gmp" ]]; then
-        GMPDIR="$GAPROOT/extern/install/gmp"
-    fi
+if test -n "$GMPDIR"; then
+    # if the user supplied an explicit path to this configure script, use that
+    :  # do nothing
+elif test -n "${GMP_PREFIX+1}"; then
+    # GAP >= 4.12.1 provides GMP_PREFIX, use that
+    GMPDIR="$GMP_PREFIX"
+elif [[ -d "$GAPROOT/extern/install/gmp" ]]; then
+    # GAP can be built with a bundled GMP; if we see that, use it
+    # (only works if the user has a self-compiled GAP)
+    GMPDIR="$GAPROOT/extern/install/gmp"
 fi
-# if still no GMP, try the one given as --with-gmp=<path> in GAP's configure
+
+# if still no GMP, as a final resort scan GAP's config.log file to figure out
+# where it found GMP (but this only works if the user self-compiled GAP)
 if test -z "$GMPDIR"; then
-    if [[ -f $GAPROOT/config.log ]]; then
+    if [[ -f "$GAPROOT/config.log" ]]; then
         for word in $(grep '\-\-with-gmp=' "$GAPROOT/config.log"); do
             pp="${word#--with-gmp=}"
             if [[ "$word" != "$pp" ]]; then
