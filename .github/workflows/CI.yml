@@ -27,7 +27,6 @@ jobs:
           - master
           - stable-4.13
           - stable-4.12
-          - stable-4.11
         ABI: ['']
         include:
           - gap-branch: master
@@ -37,7 +36,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: gap-actions/setup-gap@v2
         with:
-          GAP_PKGS_TO_CLONE: "io"  # needed for GAP 4.11
           GAPBRANCH: ${{ matrix.gap-branch }}
           ABI: ${{ matrix.ABI }}
       - uses: gap-actions/build-pkg@v1
