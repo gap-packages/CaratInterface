@@ -1,3 +1,7 @@
+Version 2.3.7
+
+  - use GMP_PREFIX if available 
+
 Version 2.3.6
 
   - added missing CloseStream in CaratQClassCatalog
