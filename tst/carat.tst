@@ -122,3 +122,8 @@ gap> BravaisGroupsCrystalFamily( "4-2;1" );
   <matrix group of size 144 with 7 generators>, 
   <matrix group of size 288 with 4 generators>, 
   <matrix group of size 144 with 6 generators> ]
+
+gap> name := CaratTmpFile("pres");;
+gap> PrintTo(name, "\n2d1\n1 1\n");
+gap> CaratReadMatrixFile( name );
+[ [ 1, 0 ], [ 0, 1 ] ]

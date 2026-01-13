@@ -171,6 +171,10 @@ BindGlobal( "CaratReadMatrix", function( input, str )
     local n, den, pos, m;
 
     n   := CaratNextNumber( str, 1 );
+    while n=fail do
+        str := CaratReadLine( input );
+        n   := CaratNextNumber( str, 1 );
+    od;
 
     # is matrix rational?
     pos := Position( str, '/' );
