@@ -1,6 +1,6 @@
 <?php 
-  $CaratInterface_Version    = '2.3.7';
-  $CARAT_Version             = '16 Oct 2024';
-  $CaratInterface_Date       = '16 Oct 2024';
+  $CaratInterface_Version    = '2.3.8';
+  $CARAT_Version             = '5 May 2026';
+  $CaratInterface_Date       = '5 May 2026';
   $CaratInterface_Size       = '7041 kB';
 ?>
