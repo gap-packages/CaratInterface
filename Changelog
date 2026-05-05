@@ -1,3 +1,7 @@
+Version 2.3.9
+
+  - typo in release date corrected
+
 Version 2.3.8
 
   - read away empty lines at the beginning of CARAT input files
