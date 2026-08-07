@@ -1,11 +1,11 @@
 <Chapter Label="Interface to CARAT">
 <Heading>Interface to CARAT</Heading>
-The GAP interface to &CARAT; consists of two parts, low level 
-interface routines to &CARAT; functions on the one hand, and 
-comfortable high level &GAP; functions on the other hand. 
-The high level functions, implemented in terms of the low level 
-functions, provide actually methods for functions and operations 
-declared in the GAP library.
+The &GAP; interface to &CARAT; consists of two parts, low level
+interface routines to &CARAT; functions on the one hand, and
+comfortable high level &GAP; functions on the other hand.
+The high level functions, implemented in terms of the low level
+functions, actually provide methods for functions and operations
+declared in the &GAP; library.
 <P/>
 Note that while (almost) all &CARAT; functions should be accessible
 from within &GAP; by the low level interface routines, high level
@@ -18,17 +18,17 @@ Further high level interface routines may be added in the future.
 In crystallography, the convention usually is that matrix groups
 act from the left on column vectors. This convention is adopted
 also in &CARAT;. The low level interface routines described below
-must respect this convention and provide &CARAT; with data in the 
+must respect this convention and provide &CARAT; with data in the
 expected format.
 <P/>
-On the other hand, in &GAP; the convention is that all groups 
-act from the right, in the case of matrix groups on row vectors. 
+On the other hand, in &GAP; the convention is that all groups
+act from the right, in the case of matrix groups on row vectors.
 However, in order to make &GAP; accessible to crystallographers,
 functions that are important in crystallography and for which it
-matters which action is assumed, are provided in two variants, 
+matters which action is assumed, are provided in two variants,
 one for each convention. The high level routines currently provided
 by this package do not depend on which convention is assumed.
-This may change, however, when further high level routines are 
+This may change, however, when further high level routines are
 added in the future.
 </Section>
 <Section Label="CARAT input and output files">
@@ -37,7 +37,7 @@ added in the future.
 and write the result to standard output. In order to use &CARAT;
 routines from within &GAP;, the input must be prepared in suitably
 formatted input files. A &CARAT; command is then executed with these
-input files, with standard output redirected to an output file, 
+input files, with standard output redirected to an output file,
 which is read back into &GAP; afterwards. This section describes
 routines interfacing with &CARAT; input and output files.
 <P/>
@@ -77,8 +77,8 @@ reads a &CARAT; matrix file, and returns a matrix or a list of matrices
 read from the file.
 <P/>
 The second &CARAT; file type is the Bravais File, containing information
-on a finite unimodular group. In  &GAP;, the contents of a Bravais File 
-is represented by a Bravais record, having the following components:
+on a finite unimodular group. In &GAP;, the contents of a Bravais File
+are represented by a Bravais record, having the following components:
 <List>
 <Mark><C>generators</C></Mark>
 <Item>generators of the finite unimodular group</Item>
@@ -87,9 +87,9 @@ is represented by a Bravais record, having the following components:
 <Mark><C>centerings</C></Mark>
 <Item>list of centering matrices (optional)</Item>
 <Mark><C>normalizer</C></Mark>
-<Item>additional generators of the normalizer in GL(n,Z) (optional)</Item>
+<Item>additional generators of the normalizer in <M>GL(n,&ZZ;)</M> (optional)</Item>
 <Mark><C>centralizer</C></Mark>
-<Item>additional generators of the centralizer in GL(n,Z) (optional)</Item>
+<Item>additional generators of the centralizer in <M>GL(n,&ZZ;)</M> (optional)</Item>
 <Mark><C>size</C></Mark>
 <Item>size of the unimodular group (optional)</Item>
 </List>
@@ -108,8 +108,8 @@ Bravais record to the file.
 <Description>
 reads a Bravais File, and returns the resulting Bravais record.
 <P/>
-Certain &CARAT; programs produce output files containing several Bravais 
-records, possibly preceeded by a varying number of header lines.
+Certain &CARAT; programs produce output files containing several Bravais
+records, possibly preceded by a varying number of header lines.
 </Description>
 </ManSection>
 <ManSection>
@@ -125,8 +125,8 @@ the file.
 <Section Label="Executing CARAT commands">
 <Heading>Executing CARAT commands</Heading>
 To execute a &CARAT; program from within &GAP;, some low level,
-general purpose routines are provided in this package. 
-Higher level routines for certain &CARAT; functions may be available 
+general purpose routines are provided in this package.
+Higher level routines for certain &CARAT; functions may be available
 in the &GAP; library or in other packages. These higher
 level functions are expected to use the following low level routines,
 so that changes in the low level interface will be transparent.
@@ -137,26 +137,26 @@ An arbitrary &CARAT; program can be executed with the routine
 <Description>
 where <A>command</A> is the name of a &CARAT; program, <A>args</A> is a string
 containing the command line arguments of the &CARAT; program,
-and <A>outfile</A> is the name of the file to which the output is to be 
+and <A>outfile</A> is the name of the file to which the output is to be
 written. Example:
 <Log><![CDATA[
 gap> CaratCommand( "Z_equiv", "file1 file2", "file.out" );
 ]]></Log>
-A short description of the arguments and options of any &CARAT; 
+A short description of the arguments and options of any &CARAT;
 program can be obtained from the &CARAT; online help facility with
 </Description>
 </ManSection>
 <ManSection>
 <Func Name="CaratHelp" Arg="command"/>
 <Description>
-where <A>command</A> is the name of the &CARAT; program. CaratHelp executes
-the program with the <C>-h</C> option, and writes the output to the 
+where <A>command</A> is the name of the &CARAT; program. <C>CaratHelp</C> executes
+the program with the <C>-h</C> option, and writes the output to the
 terminal. Example:
 <Log><![CDATA[
 gap> CaratHelp( "Z_equiv" );
 ]]></Log>
 A list of all &CARAT; programs, along with a description of their
-usage and functionality, can be found in the &CARAT; documentation 
+usage and functionality, can be found in the &CARAT; documentation
 (in HTML), in the file
 <Log><![CDATA[
 tex/introduction.html
@@ -169,7 +169,7 @@ in the &CARAT; home directory.
 <Heading>Methods provided by CARAT</Heading>
 &CARAT; implements methods for the following functions and operations
 declared in the &GAP; library. For a detailed description of these
-functions, please consult the &GAP; manual (section 
+functions, please consult the &GAP; manual (section
 <Ref Sect="Matrix Groups in Characteristic 0" BookName="ref"/>).
 <ManSection>
 <Attr Name="BravaisGroup" Arg="G"/>
@@ -193,7 +193,8 @@ accessed via a crystal family symbol.
 <ManSection>
 <Var Name="CaratCrystalFamilies"/>
 <Description>
-returns a list of inequivalent crystal family symbols in dimension <A>d</A>.
+<C>CaratCrystalFamilies[<A>d</A>]</C> is a list of inequivalent crystal family
+symbols in dimension <A>d</A>.
 </Description>
 </ManSection>
 <ManSection>
@@ -206,8 +207,8 @@ in the crystal family with symbol <A>symb</A>.
 </Section>
 <Section Label="CARAT Q-Class Catalog">
 <Heading>CARAT Q-Class Catalog</Heading>
-&CARAT; contains a catalog with representatives of all <M>Q</M>-classes of
-finite unimodular groups up to dimension&nbsp;6. This catalog can be accessd
+&CARAT; contains a catalog with representatives of all <M>&QQ;</M>-classes of
+finite unimodular groups up to dimension&nbsp;6. This catalog can be accessed
 with the function
 <ManSection>
 <Func Name="CaratQClassCatalog" Arg="grp, mode"/>
@@ -218,16 +219,16 @@ several of the following components, depending on the decomposition of
 <M>mode = n_{0} + n_{1} * 2 + n_{2} * 4</M> into powers of 2:
 <List>
 <Mark><C>qclass</C></Mark>
-<Item>Q-class symbol; this component is always present</Item>
+<Item><M>&QQ;</M>-class symbol; this component is always present</Item>
 <Mark><C>familysymb</C></Mark>
 <Item>crystal family symbol (present if <M>n_{0} &lt;&gt; 0</M>)</Item>
 <Mark><C>trans</C></Mark>
-<Item>transformation to standard representative of Q-class: 
-               <A>grp</A><A>trans</A> = <A>std</A>
+<Item>transformation to standard representative of the <M>&QQ;</M>-class:
+               <A>grp</A>^<A>trans</A> = <A>std</A>
                (present if <M>n_{1} &lt;&gt; 0</M>)</Item>
 <Mark><C>group</C></Mark>
-<Item>standard representative of Q-class of <A>grp</A> 
-               (present if <M>n_{2} &lt;&gt; 0</M> )</Item>
+<Item>standard representative of the <M>&QQ;</M>-class of <A>grp</A>
+               (present if <M>n_{2} &lt;&gt; 0</M>)</Item>
 </List>
 If <A>G1</A> and <A>G2</A> are two unimodular groups,
 </Description>
@@ -235,10 +236,11 @@ If <A>G1</A> and <A>G2</A> are two unimodular groups,
 <ManSection>
 <Func Name="ConjugatorQClass" Arg="G1, G2"/>
 <Description>
-returns a rational matrix <A>m</A> such that <A>G1</A><A>m</A> = <A>G2</A>, or fail, if 
-the groups are not in the same Q-class. Since this function uses the 
-&CARAT; Q-class catalog, only groups up to dimension 6 are supported. 
-If this dimension is exceeded, an error is reported.
+returns a rational matrix <A>m</A> such that <A>G1</A>^<A>m</A> = <A>G2</A>, or
+<K>fail</K>, if the groups are not in the same <M>&QQ;</M>-class. Since this
+function uses the &CARAT; <M>&QQ;</M>-class catalog, only groups up to
+dimension 6 are supported. If this dimension is exceeded, an error is
+reported.
 </Description>
 </ManSection>
 </Section>
