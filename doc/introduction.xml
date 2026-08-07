@@ -25,12 +25,10 @@ included. It is this version with which the interface routines
 have been tested. The most recent version of &CARAT; can be obtained at
 its home page
 <List>
-<Mark></Mark>
 <Item><URL>https://lbfm-rwth.github.io/carat</URL>.</Item>
 </List>
 The &GAP; interface routines to &CARAT; have been written by
 <List>
-<Mark></Mark>
 <Item>Franz Gähler<Br/>
 Fakultät für Mathematik<Br/>
 Universität Bielefeld<Br/>
@@ -41,13 +39,11 @@ D-33501 Bielefeld<Br/>
 For bug reports, suggestions and comments regarding the interface routines,
 please use the issue tracker on GitHub:
 <List>
-<Mark></Mark>
 <Item><URL>https://github.com/gap-packages/CaratInterface/issues/</URL></Item>
 </List>
 Bug reports regarding &CARAT; itself should be reported in the
 &CARAT; issue tracker on GitHub:
 <List>
-<Mark></Mark>
 <Item><URL>https://github.com/lbfm-rwth/carat/issues/</URL></Item>
 </List>
 </Chapter>
