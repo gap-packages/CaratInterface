@@ -1,11 +1,10 @@
 #!/bin/sh
 
 # before running this script, edit date and version in
-# Changelog, PackageInfo.g, etc/VERSION, etc/make_zoo
-# etc/changelog.html, doc/installation.tex
+# Changelog, PackageInfo.g, etc/VERSION, etc/make_tar
+# etc/changelog.html
 
-(cd ../doc; ./make_doc )
-
+# make_tar rebuilds the manual itself
 ./make_tar
 
 grep -v svg ../README.md > ~/WWW/gap/CaratInterface/README.CaratInterface
