@@ -1,3 +1,7 @@
+Version 2.3.10
+
+  - manual converted to GAPDoc (thanks to fingolfin for converting)
+
 Version 2.3.9
 
   - typo in release date corrected
