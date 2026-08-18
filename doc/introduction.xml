@@ -1,0 +1,49 @@
+<Chapter Label="Introduction">
+<Heading>Introduction</Heading>
+<Index>caratinterface</Index>
+<P/>
+The package &CaratInterface; contains &GAP; interface routines to &CARAT;,
+a package of programs for the computation with crystallographic
+groups. &CARAT; is implemented in C, and has been developed by
+J.&nbsp;Opgenorth, W.&nbsp;Plesken, and T.&nbsp;Schulz at Lehrstuhl&nbsp;B für
+Mathematik, RWTH Aachen. The algorithms used by &CARAT; are described
+in <Cite Key="OPS98"/>.
+<P/>
+&CARAT; is to a large extent complementary to the &GAP; package
+&Cryst;. In particular, it provides routines for the computation
+of normalizers and conjugators of finite unimodular groups in
+<M>GL(n,&ZZ;)</M>, and routines for the computation of Bravais groups,
+which are all missing in &Cryst;. Furthermore, &CARAT; also provides a
+catalog of Bravais groups up to dimension 6. &Cryst; automatically loads
+&CaratInterface; when it is available, and makes use of its functions
+where necessary. The present package thereby extends the functionality
+of &Cryst; considerably.
+<P/>
+&CARAT; itself is NOT part of this package. However, for your convenience,
+and in accordance with the &CARAT; license, a copy of &CARAT; is
+included. It is this version with which the interface routines
+have been tested. The most recent version of &CARAT; can be obtained at
+its home page
+<List>
+<Item><URL>https://lbfm-rwth.github.io/carat</URL>.</Item>
+</List>
+The &GAP; interface routines to &CARAT; have been written by
+<List>
+<Item>Franz Gähler<Br/>
+Fakultät für Mathematik<Br/>
+Universität Bielefeld<Br/>
+Postfach 10 01 31<Br/>
+D-33501 Bielefeld<Br/>
+<Email>gaehler@math.uni-bielefeld.de</Email></Item>
+</List>
+For bug reports, suggestions and comments regarding the interface routines,
+please use the issue tracker on GitHub:
+<List>
+<Item><URL>https://github.com/gap-packages/CaratInterface/issues/</URL></Item>
+</List>
+Bug reports regarding &CARAT; itself should be reported in the
+&CARAT; issue tracker on GitHub:
+<List>
+<Item><URL>https://github.com/lbfm-rwth/carat/issues/</URL></Item>
+</List>
+</Chapter>

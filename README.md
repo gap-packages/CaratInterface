@@ -3,7 +3,7 @@
 
 The GAP package CaratInterface provides GAP interface routines to
 some of the stand-alone programs in the package CARAT, developed
-by J. Opgenorth, W. Plesken, and  T. Schulz at Lehrstuhl B für
+by J. Opgenorth, W. Plesken, and T. Schulz at Lehrstuhl B für
 Mathematik, RWTH Aachen. CARAT is a package for the computation
 with crystallographic groups. It is implemented in C, and thus needs
 to be compiled. It currently runs on Unix systems and in Unix-like
@@ -13,7 +13,7 @@ CARAT is to a large extent complementary to the GAP package Cryst.
 In particular, it provides routines for the computation of
 normalizers and conjugators of finite unimodular groups in GL(n,Z),
 and routines for the computation of Bravais groups, which are all
-missing in Cryst. Furthermore, it provides also a catalogue of
+missing in Cryst. Furthermore, it also provides a catalog of
 Bravais groups up to dimension 6. Cryst automatically loads
 CaratInterface when it is available, and makes use of its functions
 where necessary. The CaratInterface package together with CARAT
@@ -22,8 +22,8 @@ thereby extends the functionality of the package Cryst considerably.
 The CaratInterface routines have been written by
 
     Franz Gähler
-    Fakultät für Mathematik 
-    Universität Bielefeld 
+    Fakultät für Mathematik
+    Universität Bielefeld
     D-33501 Bielefeld
 
     gaehler@math.uni-bielefeld.de

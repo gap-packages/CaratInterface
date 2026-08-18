@@ -10,9 +10,9 @@ pkg/caratinterface/:
     ./configure <path-to-GAP-root>
     make
 
-The configure script optionally takes the path to the root directory of 
-your GAP installation as argument. The default ../.. should usually 
-work, but if you have unpacked CaratInterace to a location like
+The configure script optionally takes the path to the root directory of
+your GAP installation as argument. The default ../.. should usually
+work, but if you have unpacked CaratInterface to a location like
 ~/.gap/pkg/caratinterface/, you need to explicitly give the path to
 the GAP root directory as argument. The result of configure is written
 to the file config.carat, which can be inspected if something goes wrong.
@@ -36,8 +36,8 @@ including all options are these:
 As CARAT's catalog of Q-classes of unimodular groups is rather large,
 it is unpacked by default only up to dimension 5. If you also want
 to unpack the data for dimension 6, you can do this with the extra
-command (again inside directory pkg/carat/)
+command (again inside directory pkg/caratinterface/)
 
     make qcat6
 
-This adds another 150 Mb of data to the installation.
+This adds another 150 MB of data to the installation.
