@@ -6,8 +6,8 @@ PKGTAR=$DIR-2.3.10.tar
 # remove old archive
 rm -f $PKGTAR*
 
-# update documentaion
-(cd .. && gap -A -q --quitonbreak makedoc.g)
+# update documentation
+(cd .. && gap -A -q --quitonbreak -c 'Read("makedoc.g" : relativePath:="../../..");')
 
 # make the package archive
 mkdir -p $DIR
