@@ -1,3 +1,7 @@
+Version 2.3.11
+
+  - fixed links in manual
+
 Version 2.3.10
 
   - manual converted to GAPDoc (thanks to fingolfin for converting)

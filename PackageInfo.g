@@ -9,9 +9,9 @@ PackageName := "CaratInterface",
 
 Subtitle := "Interface to CARAT, a crystallographic groups package",
 
-Version := "2.3.10",
+Version := "2.3.11",
 
-Date := "18/08/2026", # dd/mm/yyyy format
+Date := "19/08/2026", # dd/mm/yyyy format
 License := "GPL-2.0-or-later",
 
 ArchiveURL := Concatenation( 
