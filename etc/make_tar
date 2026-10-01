@@ -19,7 +19,7 @@ cd $DIR
   rm -rf carat
 cd ..
 grep -v svg ../README.md > $DIR/README
-cp -p ../*.g ../INSTALL ../Changelog ../GPL $DIR/
+cp -p ../*.g ../INSTALL ../CHANGES.md ../GPL $DIR/
 cp -p ../Makefile ../configure $DIR/
 cp -p ../doc/*.xml ../doc/*.bib ../doc/*.css ../doc/*.js \
   ../doc/chap*.html ../doc/chap*.txt ../doc/chooser.html \
