@@ -1,148 +1,148 @@
-Version 2.3.11
+## 2.3.11 (2026-08-19)
 
-  - fixed links in manual
+- fixed links in manual
 
-Version 2.3.10
+## 2.3.10 (2026-08-18)
 
-  - manual converted to GAPDoc (thanks to fingolfin for converting)
+- manual converted to GAPDoc (thanks to fingolfin for converting)
 
-Version 2.3.9
+## 2.3.9 (2026-05-05)
 
-  - typo in release date corrected
+- typo in release date corrected
 
-Version 2.3.8
+## 2.3.8 (2026-05-05)
 
-  - read away empty lines at the beginning of CARAT input files
+- read away empty lines at the beginning of CARAT input files
 
-Version 2.3.7
+## 2.3.7 (2024-10-16)
 
-  - use GMP_PREFIX if available
+- use GMP_PREFIX if available
 
-Version 2.3.6
+## 2.3.6 (2023-12-18)
 
-  - added missing CloseStream in CaratQClassCatalog
-  - catch CARAT failures better
+- added missing CloseStream in CaratQClassCatalog
+- catch CARAT failures better
 
-Version 2.3.5
+## 2.3.5 (2023-04-03)
 
-  - removed C source no longer needed (use IO package instead)
-  - fixed a use-after-free in CARAT
+- removed C source no longer needed (use IO package instead)
+- fixed a use-after-free in CARAT
 
-Version 2.3.4
+## 2.3.4 (2022-07-29)
 
-  - fixed a bug in NormalizerInGLnZ
+- fixed a bug in NormalizerInGLnZ
 
-Version 2.3.3
+## 2.3.3 (2019-12-20)
 
-  - fixed conversion of documentation to HTML
+- fixed conversion of documentation to HTML
 
-Version 2.3.2
+## 2.3.2 (2019-12-10)
 
-  - fixed buffer overflow in Bravais_catalog
+- fixed buffer overflow in Bravais_catalog
 
-Version 2.3.1
+## 2.3.1 (2019-11-14)
 
-  - changed name to CaratInterface
-  - adapted to new CARAT build system (using autotools)
-  - further code cleanup in CARAT
-  - caught a case in CaratReadMultiBravaisFile
+- changed name to CaratInterface
+- adapted to new CARAT build system (using autotools)
+- further code cleanup in CARAT
+- caught a case in CaratReadMultiBravaisFile
 
-Version 2.3
+## 2.3 (2019-10-24)
 
-  - switched to GitHub version of CARAT
-  - code cleanup in CARAT, resulting in a vastly reduced number of
-    compilation warnings
-  - support for a environment variable CARAT_DIR pointing to the
-    CARAT base directory. Using it, one can override the location
-    of CARAT at compile time
-  - catch the trivial 1d case in NormalizerInGLnZ
+- switched to GitHub version of CARAT
+- code cleanup in CARAT, resulting in a vastly reduced number of
+  compilation warnings
+- support for a environment variable CARAT_DIR pointing to the
+  CARAT base directory. Using it, one can override the location
+  of CARAT at compile time
+- catch the trivial 1d case in NormalizerInGLnZ
 
-Version 2.2.3
+## 2.2.3 (2018-11-04)
 
-  - build system improvements - compiles now on MacOS
-  - automatic tests and code coverage of tests added
+- build system improvements - compiles now on MacOS
+- automatic tests and code coverage of tests added
 
-Version 2.2.2
+## 2.2.2 (2018-03-28)
 
-  - added more flexibility to build process
-  - builds now also on MacOS
+- added more flexibility to build process
+- builds now also on MacOS
 
-Version 2.2.1
+## 2.2.1 (2018-03-06)
 
-  - wrong date corrected
+- wrong date corrected
 
-Version 2.2.0
+## 2.2.0 (2018-02-22)
 
-  - new CARAT tarball from Aachen, includes now a GPL 3 license file
-  - new build system with configure & make, builds CARAT with the same
-    GMP library as GAP
-  - bugs in ConjugatorQClass and CaratQClassCatalog fixed
-  - testfiles added
+- new CARAT tarball from Aachen, includes now a GPL 3 license file
+- new build system with configure & make, builds CARAT with the same
+  GMP library as GAP
+- bugs in ConjugatorQClass and CaratQClassCatalog fixed
+- testfiles added
 
-Version 2.1.7
+## 2.1.7 (2017-12-22)
 
-  - improved build instructions for gcc 5 or higher
+- improved build instructions for gcc 5 or higher
 
-Version 2.1.6
+## 2.1.6 (2016-05-23)
 
-  - updated config.guess
+- updated config.guess
 
-Version 2.1.5
+## 2.1.5 (2016-05-17)
 
-  - build only static version of gmplib, so that this one must be used
+- build only static version of gmplib, so that this one must be used
 
-Version 2.1.4
+## 2.1.4 (2012-05-29)
 
-  - fixed file permissions
+- fixed file permissions
 
-Version 2.1.3
+## 2.1.3 (2012-05-07)
 
-  - another small fix in PackageInfo.g
+- another small fix in PackageInfo.g
 
-Version 2.1.2
+## 2.1.2 (2012-05-02)
 
-  - small fix in PackageInfo.g
+- small fix in PackageInfo.g
 
-Version 2.1.1
+## 2.1.1
 
-  - update to GAP version 4.5
+- update to GAP version 4.5
 
-Version 2.1
+## 2.1
 
-  - update to CARAT version 2.1b1
+- update to CARAT version 2.1b1
 
-Version 2.0.2
+## 2.0.2
 
-  - included updated version of CARAT 2.0 with a newer version of GMP,
-    which compiles also with gcc 4.1.
+- included updated version of CARAT 2.0 with a newer version of GMP,
+  which compiles also with gcc 4.1.
 
-Version 2.0.1
+## 2.0.1 (2006-12-18)
 
-  - BravaisGroupsCrystalFamily stored wrong sizes in groups.
+- BravaisGroupsCrystalFamily stored wrong sizes in groups.
 
-Version 2.0
+## 2.0
 
-  - switch to CARAT 2.0 (without GAP interface update)
+- switch to CARAT 2.0 (without GAP interface update)
 
-Version 1.1.3
+## 1.1.3
 
-  - BravaisSubgroups and BravaisSupergroups stored wrong sizes in groups.
+- BravaisSubgroups and BravaisSupergroups stored wrong sizes in groups.
 
-Version 1.1.2
+## 1.1.2
 
-  - File manual.toc added.
+- File manual.toc added.
 
-Version 1.1.1
+## 1.1.1 (2003-06-18)
 
-  - made CARAT_TMP_DIR work with saved workspaces
+- made CARAT_TMP_DIR work with saved workspaces
 
-  - CaratInvariantFormSpace implemented, but not yet documented
+- CaratInvariantFormSpace implemented, but not yet documented
 
-  - Support for new package loading mechanism in GAP 4.4
+- Support for new package loading mechanism in GAP 4.4
 
-Version 1.1:
+## 1.1
 
-  - addition of an access function for the CARAT Q-class catalog;
-    new function ConjugatorQClass
+- addition of an access function for the CARAT Q-class catalog;
+  new function ConjugatorQClass
 
-  - switch to CARAT 1.2
+- switch to CARAT 1.2
